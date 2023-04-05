@@ -1,0 +1,12 @@
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\bin\Debug\net5.0\RH.Pedido.Data.deps.json
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\bin\Debug\net5.0\RH.Pedido.Data.dll
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\bin\Debug\net5.0\RH.Pedido.Data.pdb
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.csproj.AssemblyReference.cache
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.AssemblyInfoInputs.cache
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.AssemblyInfo.cs
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.dll
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\refint\RH.Pedido.Data.dll
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\RH.Pedido.Data.pdb
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pedido.Data\obj\Debug\net5.0\ref\RH.Pedido.Data.dll

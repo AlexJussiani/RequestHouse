@@ -1,0 +1,7 @@
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.csproj.AssemblyReference.cache
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.AssemblyInfoInputs.cache
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.AssemblyInfo.cs
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Cliente.API\obj\Debug\net5.0\RH.Cliente.API.MvcApplicationPartsAssemblyInfo.cache

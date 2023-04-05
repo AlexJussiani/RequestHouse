@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "RH.Pedido.Domain/1.0.0": {
+        "dependencies": {
+          "RH.Core": "1.0.0"
+        },
+        "runtime": {
+          "RH.Pedido.Domain.dll": {}
+        }
+      },
+      "RH.Core/1.0.0": {
+        "runtime": {
+          "RH.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RH.Pedido.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RH.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
