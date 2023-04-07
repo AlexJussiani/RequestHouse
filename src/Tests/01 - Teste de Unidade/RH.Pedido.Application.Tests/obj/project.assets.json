@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedido.Application.Tests.csproj",
-      "projectName": "RH.Pedido.Application.Tests",
-      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedido.Application.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
+      "projectName": "RH.Pedidos.Application.Tests",
+      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\obj\\",
       "projectStyle": "PackageReference",

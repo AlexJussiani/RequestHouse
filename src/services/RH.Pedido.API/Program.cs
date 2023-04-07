@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RH.Pedido.API
+namespace RH.Pedidos.API
 {
     public class Program
     {

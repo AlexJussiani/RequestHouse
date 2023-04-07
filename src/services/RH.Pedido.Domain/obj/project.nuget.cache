@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CznoyziKW1isUG0H7glGwRfv0BtRj6tY/6bbJNn1z3lDmzPJpL9w26rp6ErKJtr5CuAGr3mpUfN62S3iEHCb9w==",
+  "dgSpecHash": "qmEpeQrPA25OzwbQxL2lBW8Tz2WUDo9H1ztcmPQg515bHFnQV76gPIGzr1BxUZPP8W/PDNMbSvSSeEVMuyYg+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

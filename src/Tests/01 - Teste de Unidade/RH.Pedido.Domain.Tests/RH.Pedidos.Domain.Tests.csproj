@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\building blocks\RH.Core\RH.Core.csproj" />
-    <ProjectReference Include="..\..\..\services\RH.Pedido.Domain\RH.Pedido.Domain.csproj" />
+    <ProjectReference Include="..\..\..\services\RH.Pedido.Domain\RH.Pedidos.Domain.csproj" />
   </ItemGroup>
 
 </Project>

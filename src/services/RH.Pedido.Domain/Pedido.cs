@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RH.Pedido.Domain
-{
-    public class Pedido : Entity
-    {
+namespace RH.Pedidos.Domain
+{  
+  public class Pedido : Entity
+   {
         public int Codigo { get; private set; }
         public Guid ClienteId { get; private set; }
         public decimal ValorTotal { get; private set; }
@@ -94,5 +94,5 @@ namespace RH.Pedido.Domain
                 return pedido;
             }
         }
-    }
+   }
 }

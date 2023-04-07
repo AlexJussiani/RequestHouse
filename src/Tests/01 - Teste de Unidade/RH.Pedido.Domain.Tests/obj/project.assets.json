@@ -2117,17 +2117,17 @@
           "bin/placeholder/RH.Core.dll": {}
         }
       },
-      "RH.Pedido.Domain/1.0.0": {
+      "RH.Pedidos.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "RH.Core": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/RH.Pedido.Domain.dll": {}
+          "bin/placeholder/RH.Pedidos.Domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/RH.Pedido.Domain.dll": {}
+          "bin/placeholder/RH.Pedidos.Domain.dll": {}
         }
       }
     }
@@ -6571,16 +6571,16 @@
       "path": "../../../building blocks/RH.Core/RH.Core.csproj",
       "msbuildProject": "../../../building blocks/RH.Core/RH.Core.csproj"
     },
-    "RH.Pedido.Domain/1.0.0": {
+    "RH.Pedidos.Domain/1.0.0": {
       "type": "project",
-      "path": "../../../services/RH.Pedido.Domain/RH.Pedido.Domain.csproj",
-      "msbuildProject": "../../../services/RH.Pedido.Domain/RH.Pedido.Domain.csproj"
+      "path": "../../../services/RH.Pedido.Domain/RH.Pedidos.Domain.csproj",
+      "msbuildProject": "../../../services/RH.Pedido.Domain/RH.Pedidos.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "RH.Core >= 1.0.0",
-      "RH.Pedido.Domain >= 1.0.0",
+      "RH.Pedidos.Domain >= 1.0.0",
       "xunit >= 2.4.0",
       "xunit.runner.visualstudio >= 2.4.0"
     ]
@@ -6592,9 +6592,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RH.Pedido.Domain.Tests.csproj",
-      "projectName": "RH.Pedido.Domain.Tests",
-      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RH.Pedido.Domain.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RH.Pedidos.Domain.Tests.csproj",
+      "projectName": "RH.Pedidos.Domain.Tests",
+      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RH.Pedidos.Domain.Tests.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\obj\\",
       "projectStyle": "PackageReference",
@@ -6620,8 +6620,8 @@
             "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj": {
               "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj"
             },
-            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj"
+            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj"
             }
           }
         }

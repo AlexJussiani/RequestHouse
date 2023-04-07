@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K/MHQSd+9xEiuofX6LS7/HqYv5ywH7d9Nlu7m/aU9nop+kBRnT7B6iq/hZdL/LmRn76qhJQhi9B7Kfsx8Ao0KQ==",
+  "dgSpecHash": "PehAxKtsAv/UBaYqdLXLs2kJzUYENI2jVtyGAUmAab9WFkpZH/q3vDAvlUNk3N1frj/ELv1mSn9zcudpUpEEpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedido.Application.Tests.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

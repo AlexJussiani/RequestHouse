@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using Xunit;
 
-namespace RH.Pedido.Domain.Tests
+namespace RH.Pedidos.Domain.Tests
 {
     
     public class PedidoTests

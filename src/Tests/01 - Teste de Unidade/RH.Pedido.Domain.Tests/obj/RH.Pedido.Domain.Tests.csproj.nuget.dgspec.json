@@ -63,12 +63,12 @@
         }
       }
     },
-    "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj": {
+    "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj",
-        "projectName": "RH.Pedido.Domain",
-        "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj",
+        "projectName": "RH.Pedidos.Domain",
+        "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\obj\\",
         "projectStyle": "PackageReference",
@@ -157,8 +157,8 @@
               "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj": {
                 "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj"
               },
-              "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj": {
-                "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedido.Domain.csproj"
+              "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj": {
+                "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedido.Domain\\RH.Pedidos.Domain.csproj"
               }
             }
           }

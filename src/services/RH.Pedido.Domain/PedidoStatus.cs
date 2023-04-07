@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RH.Pedido.Domain
+namespace RH.Pedidos.Domain
 {
     public enum PedidoStatus
     {

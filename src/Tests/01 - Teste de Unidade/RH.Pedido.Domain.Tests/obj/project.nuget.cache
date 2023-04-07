@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "h2g/SplBkvsbfT/2cq54EFdrWzVvdI/uvYRcyPqfOniPxNxEiPnUrCgAZhzZzLCTgffuwVasklmdl2IpfWzldw==",
+  "dgSpecHash": "LsQP0pe2CoNARiE1CNGhTfrZ7HTId3E5vAimxFWs5r5BZe9X0OrGq+dhOKhqZcxZW+NiG79UXNS/An8UUhvx6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RH.Pedido.Domain.Tests.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RH.Pedidos.Domain.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.net.test.sdk\\15.0.0\\microsoft.net.test.sdk.15.0.0.nupkg.sha512",

@@ -25,13 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Identidade.API", "src\se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pagamento.API", "src\services\RH.Pagamento.API\RH.Pagamento.API.csproj", "{5D70C820-1C4A-45E4-9FB3-425498E6D785}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pedido.API", "src\services\RH.Pedido.API\RH.Pedido.API.csproj", "{0DD8532D-F7B1-4D18-AB01-EAD3FAD480B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pedidos.API", "src\services\RH.Pedido.API\RH.Pedidos.API.csproj", "{0DD8532D-F7B1-4D18-AB01-EAD3FAD480B1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Produto.API", "src\services\RH.Produto.API\RH.Produto.API.csproj", "{077973E5-15F5-42A8-8D32-F939E2D39684}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedido.Domain", "src\services\RH.Pedido.Domain\RH.Pedido.Domain.csproj", "{D5221E12-E1FC-4075-BE6E-BB194A252E7C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedidos.Domain", "src\services\RH.Pedido.Domain\RH.Pedidos.Domain.csproj", "{D5221E12-E1FC-4075-BE6E-BB194A252E7C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedido.Data", "src\services\RH.Pedido.Data\RH.Pedido.Data.csproj", "{9C497DAB-B2C0-4AE9-BAB8-FB187D08E19D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedidos.Data", "src\services\RH.Pedido.Data\RH.Pedidos.Data.csproj", "{9C497DAB-B2C0-4AE9-BAB8-FB187D08E19D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Tests", "01 - Tests", "{F5A6CB6A-4637-4FDF-9EE8-083A40565E74}"
 EndProject
@@ -39,9 +39,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Testes de Unidade", "0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Testde de Integracao", "02 - Testde de Integracao", "{3BAB77A5-5A6B-41EE-BF4C-709A6B86978F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedido.Application.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Application.Tests\RH.Pedido.Application.Tests.csproj", "{8F8FEC63-18CC-4412-823A-BB666CF77167}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedidos.Application.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Application.Tests\RH.Pedidos.Application.Tests.csproj", "{8F8FEC63-18CC-4412-823A-BB666CF77167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedido.Domain.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Domain.Tests\RH.Pedido.Domain.Tests.csproj", "{26FAA901-53C0-456D-8EF8-1D26D365A342}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Pedidos.Domain.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Domain.Tests\RH.Pedidos.Domain.Tests.csproj", "{26FAA901-53C0-456D-8EF8-1D26D365A342}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{76DA5C3F-9EBE-4519-AD7D-01C9CABD1B8E}"
 EndProject
