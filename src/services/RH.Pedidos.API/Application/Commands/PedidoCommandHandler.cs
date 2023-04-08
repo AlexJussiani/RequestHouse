@@ -72,7 +72,13 @@ namespace RH.Pedidos.API.Application.Commands
                 return ValidationResult;
             }
 
-            var pedidoItem = await _pedidoRepository.
+            var pedidoItem = await _pedidoRepository.ObterItemPorPedido(message.PedidoId, message.ProdutoId);
+
+            if(pedidoItem == null)
+            {
+                AdicionarErro("Item pedido Não Encontrado");
+                return ValidationResult;
+            }
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }      
