@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\services\RH.Pedido.API\RH.Pedidos.API.csproj" />
+    <ProjectReference Include="..\..\..\services\RH.Pedidos.API\RH.Pedidos.API.csproj" />
+    <ProjectReference Include="..\..\..\services\RH.Pedidos.Domain\RH.Pedidos.Domain.csproj" />
   </ItemGroup>
-
 </Project>

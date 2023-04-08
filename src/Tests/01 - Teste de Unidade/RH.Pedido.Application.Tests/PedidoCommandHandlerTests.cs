@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Moq;
+﻿using Moq;
 using Moq.AutoMock;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.Data.Repository;
