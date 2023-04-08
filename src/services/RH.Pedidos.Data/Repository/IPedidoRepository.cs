@@ -10,7 +10,7 @@ namespace RH.Pedidos.Data.Repository
     {
         Task<Pedido> ObterPorId(Guid id);
         Task<IEnumerable<Pedido>> ObterListaPorClienteId(Guid clienteId);
-        Task<Pedido> ObterPedidoRascunhoPorClienteId(Guid clienteId);
+        Task<Pedido> ObterPedidoRascunhoPorPedidoId(Guid pedidoId);
         void Adicionar(Pedido pedido);
         void Atualizar(Pedido pedido);
 

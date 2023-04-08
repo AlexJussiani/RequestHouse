@@ -9,7 +9,7 @@ namespace RH.Pedidos.API.Application.Commands
     public class AdicionarItemPedidoCommand : Command
     {
         // Pedido
-        public Guid ClienteId { get; private set; }
+        public Guid PedidoId { get; private set; }
 
         public Guid ProdutoId { get; private set; }
 
@@ -19,9 +19,9 @@ namespace RH.Pedidos.API.Application.Commands
 
         public decimal ValorUnitario { get; private set; }
 
-        public AdicionarItemPedidoCommand(Guid clienteId, Guid produtoId, string nome, int quantidade, decimal valorUnitario)
+        public AdicionarItemPedidoCommand(Guid pedidoId, Guid produtoId, string nome, int quantidade, decimal valorUnitario)
         {
-            ClienteId = clienteId;
+            PedidoId = pedidoId;
             ProdutoId = produtoId;
             Nome = nome;
             Quantidade = quantidade;
@@ -46,7 +46,7 @@ namespace RH.Pedidos.API.Application.Commands
 
         public AdicionarItemPedidoValidation()
         {
-            RuleFor(c => c.ClienteId)
+            RuleFor(c => c.PedidoId)
                 .NotEqual(Guid.Empty)
                 .WithMessage(IdClienteErroMsg);
 

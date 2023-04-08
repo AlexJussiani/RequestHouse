@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -14,11 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Queries\ViewModels\" />
-    <Folder Include="Application\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\building blocks\RH.Core\RH.Core.csproj" />
     <ProjectReference Include="..\RH.Pedidos.Data\RH.Pedidos.Data.csproj" />
   </ItemGroup>
 

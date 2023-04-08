@@ -19,9 +19,9 @@ namespace RH.Pedidos.Data.Repository
         }
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<Pedido> ObterPedidoRascunhoPorClienteId(Guid clienteId)
+        public async Task<Pedido> ObterPedidoRascunhoPorPedidoId(Guid pedidoId)
         {
-            var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.ClienteId == clienteId && p.PedidoStatus == PedidoStatus.Rascunho);
+            var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.Id == pedidoId && p.PedidoStatus == PedidoStatus.Rascunho);
             if (pedido == null) return null;
 
             await _context.Entry(pedido)
@@ -37,7 +37,7 @@ namespace RH.Pedidos.Data.Repository
 
         public void Atualizar(Pedido pedido)
         {
-            throw new NotImplementedException();
+            _context.Pedidos.Update(pedido);
         }
 
         public void AdicionarItem(PedidoItem pedidoItem)
@@ -55,9 +55,9 @@ namespace RH.Pedidos.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId)
+        public async Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId)
         {
-            throw new NotImplementedException();
+            return await _context.PedidoItems.FirstOrDefaultAsync(p => p.ProdutoId == produtoId && p.PedidoId == pedidoId);
         }
 
         public Task<IEnumerable<Pedido>> ObterListaPorClienteId(Guid clienteId)

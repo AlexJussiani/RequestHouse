@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System;
 using RH.Core.Data;
 using RH.Core.Mediator;
+using RH.Core.Messages;
 
 namespace RH.Pedidos.Data
 {
@@ -27,7 +28,7 @@ namespace RH.Pedidos.Data
                 e => e.GetProperties().Where(p => p.ClrType == typeof(string))))
                 property.SetColumnType("varchar(100)");
 
-            //modelBuilder.Ignore<Event>();
+            modelBuilder.Ignore<Event>();
             modelBuilder.Ignore<ValidationResult>();
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(PedidosContext).Assembly);
