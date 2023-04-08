@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RH.Pedidos.Data.Data.Mappings
+namespace RH.Pedidos.Data.Mappings
 {
     internal class PedidoItemMapping : IEntityTypeConfiguration<PedidoItem>
     {

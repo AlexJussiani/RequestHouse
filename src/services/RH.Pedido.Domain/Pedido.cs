@@ -2,13 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RH.Pedidos.Domain
 {  
-  public class Pedido : Entity
-   {
+  public class Pedido : Entity, IAggregateRoot
+    {
         public int Codigo { get; private set; }
         public Guid ClienteId { get; private set; }
         public decimal ValorTotal { get; private set; }
@@ -66,7 +64,7 @@ namespace RH.Pedidos.Domain
             if (!ItemExistente(item)) throw new DomainException("O item não pertence ao pedido");
         }
 
-        private bool ItemExistente(PedidoItem item)
+        public bool ItemExistente(PedidoItem item)
         {
             return _pedidoItems.Any(i => i.ProdutoId == item.ProdutoId);
         }

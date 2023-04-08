@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RH.Pedidos.Data.Data;
+using RH.Pedidos.Data;
 
 namespace RH.Pedidos.API.Configuration
 {

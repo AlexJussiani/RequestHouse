@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "bnxFXlcChz+YnPyNVFlOgEjJXZzDRXV2rBPcUsER3GLcyhPRRZ3DeIYOmtbAtvUHw55ffie/BKsaTngl2zE1Gw==",
+  "dgSpecHash": "3X/jXz3iu4NeRlgrPJNKZEw/M3yyG7Kqaez7VnTSNnZGiLr/zvcYdagm8spcnK5SGv+htbVHNFb1FC0LNlye2A==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

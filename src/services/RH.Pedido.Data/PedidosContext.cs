@@ -5,16 +5,18 @@ using System.Linq;
 using RH.Core.DomainObjects;
 using System.Threading.Tasks;
 using System;
+using RH.Core.Data;
+using RH.Core.Mediator;
 
-namespace RH.Pedidos.Data.Data
+namespace RH.Pedidos.Data
 {
-    public class PedidosContext : DbContext
+    public class PedidosContext : DbContext, IUnitOfWork
     {
-
-        public PedidosContext(DbContextOptions<PedidosContext> options)
+        private readonly IMediatorHandler _mediatorHandler;
+        public PedidosContext(DbContextOptions<PedidosContext> options, IMediatorHandler mediatorHandler)
             : base(options)
         {
-           
+            _mediatorHandler = mediatorHandler;
         }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<PedidoItem> PedidoItems { get; set; }
@@ -55,9 +57,32 @@ namespace RH.Pedidos.Data.Data
             }
 
             var sucesso = await base.SaveChangesAsync() > 0;
-           // if (sucesso) await _mediatorHandler.PublicarEventos(this);
+             if (sucesso) await _mediatorHandler.PublicarEventos(this);
 
             return sucesso;
+        }
+    }
+    public static class MediatorExtension
+    {
+        public static async Task PublicarEventos<T>(this IMediatorHandler mediator, T ctx) where T : DbContext
+        {
+            var domainEntities = ctx.ChangeTracker
+                .Entries<Entity>()
+                .Where(x => x.Entity.Notificacoes != null && x.Entity.Notificacoes.Any());
+
+            var domainEvents = domainEntities
+                .SelectMany(x => x.Entity.Notificacoes)
+                .ToList();
+
+            domainEntities.ToList()
+                .ForEach(entity => entity.Entity.LimparEventos());
+
+            var tasks = domainEvents
+                .Select(async (domainEvent) => {
+                    await mediator.PublicarEvento(domainEvent);
+                });
+
+            await Task.WhenAll(tasks);
         }
     }
 }

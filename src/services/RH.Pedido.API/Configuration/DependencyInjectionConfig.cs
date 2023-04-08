@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using RH.Pedidos.Data.Data;
+using RH.Pedidos.Data;
 
 namespace RH.Pedidos.API.Configuration
 {

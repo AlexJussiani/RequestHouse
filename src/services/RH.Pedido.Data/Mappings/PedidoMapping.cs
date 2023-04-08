@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RH.Pedidos.Domain;
 
-namespace RH.Pedidos.Data.Data.Mappings
+namespace RH.Pedidos.Data.Mappings
 {
     public class PedidoMapping : IEntityTypeConfiguration<Pedido>
     {
@@ -61,7 +61,7 @@ namespace RH.Pedidos.Data.Data.Mappings
             builder.Property(c => c.Codigo)
                 .HasDefaultValueSql("NEXT VALUE FOR MinhaSequencia");
 
-    // 1 : N => Pedido : PedidoItems
+            // 1 : N => Pedido : PedidoItems
             builder.HasMany(c => c.PedidoItems)
                         .WithOne(c => c.Pedido)
                         .HasForeignKey(c => c.PedidoId);
