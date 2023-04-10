@@ -13,7 +13,8 @@ namespace RH.Pedidos.API.Application.Commands
 {
     public class PedidoCommandHandler : CommandHandler,
         IRequestHandler<AdicionarItemPedidoCommand, ValidationResult>,
-        IRequestHandler<AtualizarItemPedidoCommand, ValidationResult>
+        IRequestHandler<AtualizarItemPedidoCommand, ValidationResult>,
+        IRequestHandler<RemoverItemPedidoCommand, ValidationResult>
     {
 
         private readonly IMediator _mediator;
@@ -80,8 +81,42 @@ namespace RH.Pedidos.API.Application.Commands
                 return ValidationResult;
             }
 
+            pedido.AdicionarItem(pedidoItem);
+            _pedidoRepository.AtualizarItem(pedidoItem);
+            _pedidoRepository.Atualizar(pedido);
+
+            pedido.AdicionarEvento(new PedidoItemAtualizadoEvent());
+
             return await PersistirDados(_pedidoRepository.UnitOfWork);
-        }      
+        }
+
+        public async Task<ValidationResult> Handle(RemoverItemPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            var pedidoItem = await _pedidoRepository.ObterItemPorPedido(message.PedidoId, message.ProdutoId);
+
+            if (pedidoItem == null)
+            {
+                AdicionarErro("Item pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            pedido.RemoverItem(pedidoItem);
+
+            _pedidoRepository.RemoverItem(pedidoItem);
+            _pedidoRepository.Atualizar(pedido);
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }
 
         private bool ValidarComando(Command message)
         {

@@ -30,5 +30,12 @@ namespace RH.Pedidos.API.Controllers
             var command = new AtualizarItemPedidoCommand(item.PedidoId, item.ProdutoId, item.Quantidade);
             return CustomResponse(await _mediatorHandler.Send(command));
         }
+
+        [HttpDelete("api/pedido")]
+        public async Task<IActionResult> AtualizarItemPedido([FromBody] ItemRemovedViewModel item)
+        {
+            var command = new RemoverItemPedidoCommand(item.PedidoId, item.ProdutoId);
+            return CustomResponse(await _mediatorHandler.Send(command));
+        }
     }
 }

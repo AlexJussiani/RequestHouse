@@ -50,6 +50,11 @@ namespace RH.Pedidos.Data.Repository
             _context.PedidoItems.Update(pedidoItem);
         }
 
+        public void RemoverItem(PedidoItem pedidoItem)
+        {
+            _context.PedidoItems.Remove(pedidoItem);
+        }
+
         public Task<PedidoItem> ObterItemPorId(Guid id)
         {
             throw new NotImplementedException();
@@ -73,6 +78,6 @@ namespace RH.Pedidos.Data.Repository
         public void Dispose()
         {
             _context.Dispose();
-        }
+        }       
     }
 }

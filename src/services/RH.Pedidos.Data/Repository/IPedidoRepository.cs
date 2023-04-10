@@ -18,5 +18,6 @@ namespace RH.Pedidos.Data.Repository
         Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId);
         void AdicionarItem(PedidoItem pedidoItem);
         void AtualizarItem(PedidoItem pedidoItem);
+        void RemoverItem(PedidoItem pedidoItem);
     }
 }
