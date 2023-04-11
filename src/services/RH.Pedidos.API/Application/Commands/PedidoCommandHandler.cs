@@ -14,7 +14,8 @@ namespace RH.Pedidos.API.Application.Commands
     public class PedidoCommandHandler : CommandHandler,
         IRequestHandler<AdicionarItemPedidoCommand, ValidationResult>,
         IRequestHandler<AtualizarItemPedidoCommand, ValidationResult>,
-        IRequestHandler<RemoverItemPedidoCommand, ValidationResult>
+        IRequestHandler<RemoverItemPedidoCommand, ValidationResult>,
+        IRequestHandler<AdicionarPedidoCommand, ValidationResult>
     {
 
         private readonly IMediator _mediator;
@@ -27,6 +28,19 @@ namespace RH.Pedidos.API.Application.Commands
             _mediator = mediator;
         }
 
+        public async Task<ValidationResult> Handle(AdicionarPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = Pedido.PedidoFactory.NovoPedidoRascunho(message.ClienteId);
+
+            _pedidoRepository.Adicionar(pedido);
+
+            pedido.AdicionarEvento(new PedidoItemAdicionadoEvent());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }
+
         public async Task<ValidationResult> Handle(AdicionarItemPedidoCommand message, CancellationToken cancellationToken)
         {
             if (!ValidarComando(message)) return message.ValidationResult;
@@ -36,10 +50,12 @@ namespace RH.Pedidos.API.Application.Commands
 
             if(pedido == null)
             {
-                pedido = Pedido.PedidoFactory.NovoPedidoRascunho(message.PedidoId);
-                pedido.AdicionarItem(pedidoItem);
+                // pedido = Pedido.PedidoFactory.NovoPedidoRascunho(message.PedidoId);
+                //   pedido.AdicionarItem(pedidoItem);
 
-                _pedidoRepository.Adicionar(pedido);
+                // _pedidoRepository.Adicionar(pedido);
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
             }
             else
             {
@@ -56,6 +72,7 @@ namespace RH.Pedidos.API.Application.Commands
                 }
                 _pedidoRepository.Atualizar(pedido);
             }
+
             pedido.AdicionarEvento(new PedidoItemAdicionadoEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
@@ -116,7 +133,7 @@ namespace RH.Pedidos.API.Application.Commands
             _pedidoRepository.Atualizar(pedido);
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
-        }
+        }        
 
         private bool ValidarComando(Command message)
         {

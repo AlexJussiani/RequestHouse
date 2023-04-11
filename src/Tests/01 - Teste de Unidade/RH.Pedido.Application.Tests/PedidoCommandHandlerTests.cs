@@ -18,6 +18,7 @@ namespace RH.Pedidos.Application.Tests
     {
         private readonly Guid _pedidoId;
         private readonly Guid _produtoId;
+        private readonly Guid _clienteId;
         private readonly Pedido _pedido;
         private readonly AutoMocker _mocker;
         private readonly PedidoCommandHandler _pedidoHandler;
@@ -29,11 +30,12 @@ namespace RH.Pedidos.Application.Tests
 
             _pedidoId = Guid.NewGuid();
             _produtoId = Guid.NewGuid();
+            _clienteId = Guid.NewGuid();
 
             _pedido = Pedido.PedidoFactory.NovoPedidoRascunho(_pedidoId);
         }
 
-        [Fact(DisplayName = "Adicionar Item Novo Pedido com Sucesso")]
+        [Fact(DisplayName = "Adicionar Item Pedido com Sucesso")]
         [Trait("Categoria", "Pedidos - Pedido Command Handler")]
         public async Task AdicionarItem_NovoPedido_DeveExecutarComSucesso()
         {
@@ -41,10 +43,31 @@ namespace RH.Pedidos.Application.Tests
             var pedidoComand = new AdicionarItemPedidoCommand(_pedidoId,
                 _produtoId, "X-tudo", 2, 22);
 
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+            //_mocker.GetMock<IPedidoRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
 
             //Act
 
+            var result = await _pedidoHandler.Handle(pedidoComand, CancellationToken.None);
+
+            //Assert
+            Assert.True(result.IsValid);
+            _mocker.GetMock<IPedidoRepository>().Verify(r => r.AdicionarItem(It.IsAny<PedidoItem>()), Times.Once);
+            _mocker.GetMock<IPedidoRepository>().Verify(r => r.Atualizar(It.IsAny<Pedido>()), Times.Once);
+            _mocker.GetMock<IPedidoRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
+            //_mocker.GetMock<IMediator>().Verify(r => r.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
+        }
+
+        [Fact(DisplayName = "Adicionar Novo Pedido com Sucesso")]
+        [Trait("Categoria", "Pedidos - Pedido Command Handler")]
+        public async Task AdicionarPedido_NovoPedido_DeveExecutarComSucesso()
+        {
+            //Arrange
+            var pedidoComand = new AdicionarPedidoCommand(_clienteId);
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            //Act
             var result = await _pedidoHandler.Handle(pedidoComand, CancellationToken.None);
 
             //Assert
@@ -63,7 +86,6 @@ namespace RH.Pedidos.Application.Tests
             _pedido.AdicionarItem(pedidoItemExistente);
 
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterItemPorPedido(_pedidoId, _produtoId)).Returns(Task.FromResult(pedidoItemExistente));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
 
