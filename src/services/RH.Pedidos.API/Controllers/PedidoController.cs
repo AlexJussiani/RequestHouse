@@ -4,6 +4,7 @@ using RH.Core.Controllers;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries.ViewModels;
 using RH.Pedidos.API.Services;
+using System;
 using System.Threading.Tasks;
 
 namespace RH.Pedidos.API.Controllers
@@ -39,9 +40,9 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [HttpDelete("api/pedidoItem")]
-        public async Task<IActionResult> AtualizarItemPedido([FromBody] ItemRemovedViewModel item)
+        public async Task<IActionResult> AtualizarItemPedido(Guid pedidoId, Guid produtoId)
         {
-            var command = new RemoverItemPedidoCommand(item.PedidoId, item.ProdutoId);
+            var command = new RemoverItemPedidoCommand(pedidoId, produtoId);
             return CustomResponse(await _mediatorHandler.Send(command));
         }
     }

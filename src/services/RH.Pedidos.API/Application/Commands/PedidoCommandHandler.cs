@@ -98,7 +98,7 @@ namespace RH.Pedidos.API.Application.Commands
                 return ValidationResult;
             }
 
-            pedido.AdicionarItem(pedidoItem);
+            pedido.AtualizarUnidades(pedidoItem, message.Quantidade);
             _pedidoRepository.AtualizarItem(pedidoItem);
             _pedidoRepository.Atualizar(pedido);
 

@@ -44,8 +44,8 @@ namespace RH.Integration.Tests
             var item = new ItemViewModel
             {
 
-                ProdutoId = new Guid("576bc18a-6617-4d99-8bd6-f00fa35c0ee0"),
-                PedidoId = new Guid("bd32ca50-7023-4760-9630-dfa7d07f9657"),
+                ProdutoId = new Guid("5AC4CB47-5041-440E-B17D-6A2BA34C605F"),
+                PedidoId = new Guid("5AC4CB47-5041-440E-B17D-6A2BA34C605F"), // esse id do pedido precisar estar cadastrado na base de testes
                 ProdutoNome = "X-tudo",
                 Quantidade = 2,
                 ValorUnitario = 22
@@ -66,11 +66,9 @@ namespace RH.Integration.Tests
             var item = new ItemViewModel
             {
 
-                ProdutoId = new Guid("576BC18A-6617-4D99-8BD6-F00FA35C0EE0"),
-                PedidoId = new Guid("F12B7756-4485-4E28-98BF-F4B26C6CF53B"),
-                ProdutoNome = "X-tudo",
-                Quantidade = 3,
-                ValorUnitario = 22
+                ProdutoId = new Guid("5AC4CB47-5041-440E-B17D-6A2BA34C605F"),
+                PedidoId = new Guid("5AC4CB47-5041-440E-B17D-6A2BA34C605F"), // esse id do pedido precisar estar cadastrado na base de testes                
+                Quantidade = 3
             };
 
             // Act
@@ -80,25 +78,19 @@ namespace RH.Integration.Tests
             postResponse.EnsureSuccessStatusCode();
         }
 
-        //[Fact(DisplayName = "Remover item em novo pedido")]
-        //[Trait("Categoria", "Integração API - Pedido")]
-        //public async Task RemoverItem_NovoPedido_DeveRetornarComSucesso()
-        //{
-        //    var item = new ItemViewModel
-        //    {
+        [Fact(DisplayName = "Remover item em um pedido"), TestPriority(3)]
+        [Trait("Categoria", "Integração API - Pedido")]
+        public async Task RemoverItem_NovoPedido_DeveRetornarComSucesso()
+        {
+            Guid produtoId = new Guid("5AC4CB47-5041-440E-B17D-6A2BA34C605F");
+            Guid pedidoId = new Guid("5AC4CB47-5041-440E-B17D-6A2BA34C605F"); // esse id do pedido precisar estar cadastrado na base de testes   
+            
 
-        //        ProdutoId = Guid.NewGuid(),
-        //        PedidoId = Guid.NewGuid(),
-        //        ProdutoNome = "X-tudo",
-        //        Quantidade = 2,
-        //        ValorUnitario = 22
-        //    };
+            // Act
+            var postResponse = await _testsFixture.Client.DeleteAsync($"api/pedidoItem?pedidoId={pedidoId}&produtoId={produtoId}");
 
-        //    // Act
-        //    var postResponse = await _testsFixture.Client.DeleteAsync("api/pedido", item);
-
-        //    // Assert
-        //    postResponse.EnsureSuccessStatusCode();
-        //}
+            // Assert
+            postResponse.EnsureSuccessStatusCode();
+        }        
     }
 }

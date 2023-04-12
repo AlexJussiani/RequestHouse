@@ -59,6 +59,12 @@ namespace RH.Pedidos.Domain
             CalcularValorPedido();
         }
 
+        public void AtualizarUnidades(PedidoItem item, int unidades)
+        {
+            item.AtualizarUnidades(unidades);
+            AtualizarItem(item);
+        }
+
         private void ValidarPedidoItemInexistente(PedidoItem item)
         {
             if (!ItemExistente(item)) throw new DomainException("O item não pertence ao pedido");

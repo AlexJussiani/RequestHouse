@@ -65,9 +65,9 @@ namespace RH.Pedidos.Data.Repository
             return await _context.PedidoItems.FirstOrDefaultAsync(p => p.ProdutoId == produtoId && p.PedidoId == pedidoId);
         }
 
-        public Task<IEnumerable<Pedido>> ObterListaPorClienteId(Guid clienteId)
+        public async Task<IEnumerable<Pedido>> ObterListaPorClienteId(Guid clienteId)
         {
-            throw new NotImplementedException();
+            return await _context.Pedidos.Where(c => c.ClienteId == clienteId).ToListAsync();
         }
 
         public Task<Pedido> ObterPorId(Guid id)

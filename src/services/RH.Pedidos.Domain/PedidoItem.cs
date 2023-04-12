@@ -35,5 +35,10 @@ namespace RH.Pedidos.Domain
         {
             Quantidade += unidades;
         }
+
+        internal void AtualizarUnidades(int unidades)
+        {
+            Quantidade = unidades;
+        }
     }
 }
