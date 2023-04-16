@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using RH.Core.Mediator;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Events;
+using RH.Pedidos.API.Application.Queries;
 using RH.Pedidos.Data;
 using RH.Pedidos.Data.Repository;
 
@@ -22,6 +23,7 @@ namespace RH.Pedidos.API.Configuration
 
             // Application
             services.AddScoped<IMediatorHandler, MediatorHandler>();
+            services.AddScoped<IPedidoQueries, PedidoQueries>();
 
             //Data
             services.AddScoped<IPedidoRepository, PedidoRepository>();

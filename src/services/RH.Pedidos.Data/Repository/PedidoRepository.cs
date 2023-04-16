@@ -3,6 +3,7 @@ using RH.Core.Data;
 using RH.Pedidos.Domain;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,29 @@ namespace RH.Pedidos.Data.Repository
         {
             _context = context;
         }
+
+        public DbConnection ObterConexao() => _context.Database.GetDbConnection();
+
         public IUnitOfWork UnitOfWork => _context;
+
+        public Task<PedidoItem> ObterItemPorId(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Pedido> ObterPorId(Guid id)
+        {
+            return await _context.Pedidos
+                .Include(p => p.PedidoItems)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(p => p.Id == id);
+            
+        }
+
+        public async Task<IEnumerable<Pedido>> ObterListaPedidosRascunho()
+        {
+            return await _context.Pedidos.Where(p => p.PedidoStatus == PedidoStatus.Rascunho).ToListAsync();
+        }
 
         public async Task<Pedido> ObterPedidoRascunhoPorPedidoId(Guid pedidoId)
         {
@@ -53,12 +76,7 @@ namespace RH.Pedidos.Data.Repository
         public void RemoverItem(PedidoItem pedidoItem)
         {
             _context.PedidoItems.Remove(pedidoItem);
-        }
-
-        public Task<PedidoItem> ObterItemPorId(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        }       
 
         public async Task<PedidoItem> ObterItemPorPedido(Guid pedidoId, Guid produtoId)
         {
@@ -68,16 +86,11 @@ namespace RH.Pedidos.Data.Repository
         public async Task<IEnumerable<Pedido>> ObterListaPorClienteId(Guid clienteId)
         {
             return await _context.Pedidos.Where(c => c.ClienteId == clienteId).ToListAsync();
-        }
-
-        public Task<Pedido> ObterPorId(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+        }       
 
         public void Dispose()
         {
             _context.Dispose();
-        }       
+        }        
     }
 }

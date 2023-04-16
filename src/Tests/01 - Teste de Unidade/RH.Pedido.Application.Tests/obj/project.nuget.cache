@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YNiXEka6jcSs3Tfa9oeALbZ76Kf/NuOe3Zht6IU0cFwn1K0WW38KuPBAcMpTYlKpSe5QSC4Z5LN5iAFnMtUcvA==",
+  "dgSpecHash": "cAxny/1LITE5QPGWS+CG/aeuu2VZkO2rqKK3RatvrgYGBYk+D7ymT2ZL/yCnVnym7zpZ5Ry6opFxvZlbXnNFQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\8.0.0\\mediatr.extensions.microsoft.dependencyinjection.8.0.0.nupkg.sha512",

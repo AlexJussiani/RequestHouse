@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RH.Core.Controllers;
 using RH.Pedidos.API.Application.Commands;
+using RH.Pedidos.API.Application.Queries;
 using RH.Pedidos.API.Application.Queries.ViewModels;
 using RH.Pedidos.API.Services;
 using System;
@@ -12,10 +13,20 @@ namespace RH.Pedidos.API.Controllers
     public class PedidoController : MainController
     {
        private readonly IMediator _mediatorHandler;
+        private readonly IPedidoQueries _queries;
 
-        public PedidoController( IMediator mediatorHandler)
-        {            
+        public PedidoController(IMediator mediatorHandler, IPedidoQueries queries)
+        {
             _mediatorHandler = mediatorHandler;
+            _queries = queries;
+        }
+
+        [HttpGet("api/pedido")]
+        public async Task<IActionResult> ObterPedidoPorId(Guid pedidoId)
+        {
+            var pedido = await _queries.ObterPedidoPorId(pedidoId);
+
+            return pedido == null ? NotFound() : CustomResponse(pedido);
         }
 
         [HttpPost("api/pedido")]
