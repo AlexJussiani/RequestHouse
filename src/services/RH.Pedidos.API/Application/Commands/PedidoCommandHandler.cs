@@ -132,6 +132,8 @@ namespace RH.Pedidos.API.Application.Commands
             _pedidoRepository.RemoverItem(pedidoItem);
             _pedidoRepository.Atualizar(pedido);
 
+            pedido.AdicionarEvento(new PedidoItemExcluidoEvent());
+
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }        
 

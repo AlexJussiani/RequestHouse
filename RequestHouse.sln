@@ -49,6 +49,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pedidos.Domain", "src\se
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Integration.Tests", "src\Tests\02 - Teste de Integracao\RH.PedidoApi.Tests\RH.Integration.Tests.csproj", "{F3831D4F-9E67-46B2-A1FC-CD1283BFFB3A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identidade", "Identidade", "{2ED1DFDE-593A-4B65-9317-3262AD1E6227}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RH.Identidade.API", "src\services\RH.Identidade.API\RH.Identidade.API.csproj", "{80B0D0A3-6F9E-466E-9E85-D940EB16AE40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,10 @@ Global
 		{F3831D4F-9E67-46B2-A1FC-CD1283BFFB3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3831D4F-9E67-46B2-A1FC-CD1283BFFB3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3831D4F-9E67-46B2-A1FC-CD1283BFFB3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B0D0A3-6F9E-466E-9E85-D940EB16AE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B0D0A3-6F9E-466E-9E85-D940EB16AE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B0D0A3-6F9E-466E-9E85-D940EB16AE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B0D0A3-6F9E-466E-9E85-D940EB16AE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -126,6 +134,8 @@ Global
 		{70521631-FDEA-412C-85A7-538C91DD4D71} = {3DD4FCFB-B43B-4035-883E-A3FFB14CBC23}
 		{C88FDE44-EF56-4097-A65C-D6276BEECFC1} = {3DD4FCFB-B43B-4035-883E-A3FFB14CBC23}
 		{F3831D4F-9E67-46B2-A1FC-CD1283BFFB3A} = {3BAB77A5-5A6B-41EE-BF4C-709A6B86978F}
+		{2ED1DFDE-593A-4B65-9317-3262AD1E6227} = {FFA0164B-2E43-4297-A53A-E869F402EE44}
+		{80B0D0A3-6F9E-466E-9E85-D940EB16AE40} = {2ED1DFDE-593A-4B65-9317-3262AD1E6227}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4CFED03E-F4FE-4093-9B2E-5B4FE4E567A1}
