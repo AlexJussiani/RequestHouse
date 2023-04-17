@@ -34,7 +34,7 @@ namespace RH.Pedidos.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(PedidosContext).Assembly);
 
             foreach (var relationship in modelBuilder.Model.GetEntityTypes()
-                .SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.ClientSetNull;
+                .SelectMany(e => e.GetForeignKeys())) relationship.DeleteBehavior = DeleteBehavior.Cascade;
 
             modelBuilder.HasSequence<int>("MinhaSequencia").StartsAt(1000).IncrementsBy(1);
 

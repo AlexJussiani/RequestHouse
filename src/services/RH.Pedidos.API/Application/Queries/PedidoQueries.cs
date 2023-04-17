@@ -50,8 +50,8 @@ namespace RH.Pedidos.API.Application.Queries
 
             var pedido = await _pedidoRepository.ObterConexao()
                 .QueryAsync<dynamic>(sql, new { pedidoId });
-
-            return MapearPedido(pedido);
+            
+            return pedido == null ? null : MapearPedido(pedido);
         }
 
         private PedidoDTO MapearPedido(dynamic result)
