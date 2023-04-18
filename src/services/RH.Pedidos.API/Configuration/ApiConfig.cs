@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RH.Core.Identidade;
 using RH.Pedidos.Data;
 
 namespace RH.Pedidos.API.Configuration
@@ -41,7 +42,7 @@ namespace RH.Pedidos.API.Configuration
 
             app.UseCors("Total");
 
-          //  app.UseAuthConfiguration();
+            app.UseAuthConfiguration();
 
             app.UseEndpoints(endpoints =>
             {

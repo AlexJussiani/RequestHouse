@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RH.Core.Identidade;
 using RH.Pedidos.API.Configuration;
 
 namespace RH.Pedidos.API
@@ -34,7 +35,7 @@ namespace RH.Pedidos.API
 
             services.AddApiConfiguration(Configuration);
 
-           // services.AddJwtConfiguration(Configuration);
+            services.AddJwtConfiguration(Configuration);
 
             services.AddSwaggerConfiguration();
 
@@ -48,23 +49,9 @@ namespace RH.Pedidos.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RH.Pedido.API v1"));
-            }
+            app.UseSwaggerConfiguration();
 
-            app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseApiConfiguration(env);
         }
     }
 }

@@ -13,8 +13,8 @@ namespace RH.Identidade.API.Configuration
             {
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
-                    Title = "Pedidos API",
-                    Description = "Esta API é para gerenciar os pedidos realizados",
+                    Title = "Identidade API",
+                    Description = "Esta API é para gerenciar as permissões de acesso ao sistema",
                     Contact = new OpenApiContact() { Name = "Alex Jussiani", Email = "alexjunior.jussiani@hotmail.com" },
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });

@@ -1,7 +1,9 @@
 ﻿using FluentValidation.Results;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using RH.Core.Mediator;
+using RH.Core.Usuario;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Events;
 using RH.Pedidos.API.Application.Queries;
@@ -27,6 +29,8 @@ namespace RH.Pedidos.API.Configuration
 
             //Data
             services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<IAspNetUser, AspNetUser>();
             services.AddScoped<PedidosContext>();
         }
     }

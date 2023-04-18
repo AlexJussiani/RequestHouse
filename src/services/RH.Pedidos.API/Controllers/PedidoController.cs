@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RH.Core.Controllers;
+using RH.Core.Usuario;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries;
 using RH.Pedidos.API.Application.Queries.ViewModels;
@@ -10,15 +12,18 @@ using System.Threading.Tasks;
 
 namespace RH.Pedidos.API.Controllers
 {
+    [Authorize]
     public class PedidoController : MainController
     {
-       private readonly IMediator _mediatorHandler;
+        private readonly IAspNetUser _user;
+        private readonly IMediator _mediatorHandler;
         private readonly IPedidoQueries _queries;
 
-        public PedidoController(IMediator mediatorHandler, IPedidoQueries queries)
+        public PedidoController(IMediator mediatorHandler, IPedidoQueries queries, IAspNetUser user)
         {
             _mediatorHandler = mediatorHandler;
             _queries = queries;
+            _user = user;
         }
 
         [HttpGet("api/pedido")]
