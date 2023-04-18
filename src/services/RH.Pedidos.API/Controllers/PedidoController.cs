@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RH.Core.Controllers;
+using RH.Core.Identidade;
 using RH.Core.Usuario;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries;
@@ -26,6 +27,7 @@ namespace RH.Pedidos.API.Controllers
             _user = user;
         }
 
+        [ClaimsAuthorize("Pedido", "Visualizar")]
         [HttpGet("api/pedido")]
         public async Task<IActionResult> ObterPedidoPorId(Guid pedidoId)
         {
@@ -34,6 +36,7 @@ namespace RH.Pedidos.API.Controllers
             return pedido == null ? NotFound() : CustomResponse(pedido);
         }
 
+        [ClaimsAuthorize("Pedido", "Adicionar")]
         [HttpPost("api/pedido")]
         public async Task<IActionResult> AdicionarPedido([FromBody] PedidoViewModel item)
         {
@@ -41,6 +44,7 @@ namespace RH.Pedidos.API.Controllers
             return CustomResponse(await _mediatorHandler.Send(command));
         }
 
+        [ClaimsAuthorize("Pedido", "Adicionar")]
         [HttpPost("api/pedidoItem")]
         public async Task<IActionResult> AdicionarItemPedido([FromBody] ItemViewModel item)
         {
@@ -48,6 +52,7 @@ namespace RH.Pedidos.API.Controllers
             return CustomResponse(await _mediatorHandler.Send(command));             
         }
 
+        [ClaimsAuthorize("Pedido", "Atualizar")]
         [HttpPut("api/pedidoItem")]
         public async Task<IActionResult> AtualizarItemPedido([FromBody] ItemViewModel item)
         {
@@ -55,6 +60,7 @@ namespace RH.Pedidos.API.Controllers
             return CustomResponse(await _mediatorHandler.Send(command));
         }
 
+        [ClaimsAuthorize("Produto", "Excluir")]
         [HttpDelete("api/pedidoItem")]
         public async Task<IActionResult> AtualizarItemPedido(Guid pedidoId, Guid produtoId)
         {
