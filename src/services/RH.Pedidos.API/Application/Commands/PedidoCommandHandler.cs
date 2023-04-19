@@ -16,8 +16,12 @@ namespace RH.Pedidos.API.Application.Commands
         IRequestHandler<AtualizarItemPedidoCommand, ValidationResult>,
         IRequestHandler<RemoverItemPedidoCommand, ValidationResult>,
         IRequestHandler<AdicionarPedidoCommand, ValidationResult>,
-        IRequestHandler<EmitirPedidoCommand, ValidationResult>
-    {
+        IRequestHandler<EmitirPedidoCommand, ValidationResult>,
+        IRequestHandler<AutorizarPedidoCommand, ValidationResult>,
+        IRequestHandler<DespacharPedidoCommand, ValidationResult>,
+        IRequestHandler<EntregarPedidoCommand, ValidationResult>,
+        IRequestHandler<CancelarPedidoCommand, ValidationResult>
+    {    
 
         private readonly IMediator _mediator;
         private readonly IPedidoRepository _pedidoRepository;
@@ -46,7 +50,7 @@ namespace RH.Pedidos.API.Application.Commands
         {
             if (!ValidarComando(message)) return message.ValidationResult;
 
-            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorPedidoId(message.PedidoId);
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
             var pedidoItem = new PedidoItem(message.ProdutoId, message.Nome, message.Quantidade, message.ValorUnitario);
 
             if(pedido == null)
@@ -83,7 +87,7 @@ namespace RH.Pedidos.API.Application.Commands
         {
             if (!ValidarComando(message)) return message.ValidationResult;
 
-            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorPedidoId(message.PedidoId);
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
 
             if(pedido == null)
             {
@@ -112,7 +116,7 @@ namespace RH.Pedidos.API.Application.Commands
         {
             if (!ValidarComando(message)) return message.ValidationResult;
 
-            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorPedidoId(message.PedidoId);
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
 
             if (pedido == null)
             {
@@ -142,7 +146,7 @@ namespace RH.Pedidos.API.Application.Commands
         {
             if (!ValidarComando(message)) return message.ValidationResult;
 
-            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorPedidoId(message.PedidoId);
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
 
             if (pedido == null)
             {
@@ -156,12 +160,136 @@ namespace RH.Pedidos.API.Application.Commands
                 return ValidationResult;
             }
 
+            if(pedido.PedidoItems.Count == 0)
+            {
+                AdicionarErro("Pedido precisa ter pelo menos 1 item");
+                return ValidationResult;
+            }
+
             pedido.EmitirPedido();
             _pedidoRepository.Atualizar(pedido);
             pedido.AdicionarEvento(new PedidoEmitidoEventHandler());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }
+
+        public async Task<ValidationResult> Handle(AutorizarPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoStatus != PedidoStatus.Emitido)
+            {
+                AdicionarErro("Para autorizar o Pedido ele precisa estar emitido");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoItems.Count == 0)
+            {
+                AdicionarErro("Pedido precisa ter pelo menos 1 item");
+                return ValidationResult;
+            }
+
+            pedido.AutorizarPedido();
+            _pedidoRepository.Atualizar(pedido);
+            pedido.AdicionarEvento(new PedidoAutorizadoEventHandler());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> Handle(DespacharPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoStatus != PedidoStatus.Autorizado)
+            {
+                AdicionarErro("Para despachar o Pedido ele precisa estar autorizado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoItems.Count == 0)
+            {
+                AdicionarErro("Pedido precisa ter pelo menos 1 item");
+                return ValidationResult;
+            }
+
+            pedido.DespacharPedido();
+            _pedidoRepository.Atualizar(pedido);
+            pedido.AdicionarEvento(new PedidoDespachadoEventHandler());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> Handle(EntregarPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoStatus != PedidoStatus.Autorizado && pedido.PedidoStatus != PedidoStatus.Percurso)
+            {
+                AdicionarErro("Para entregar o Pedido ele precisa estar autorizado ou em percurso");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoItems.Count == 0)
+            {
+                AdicionarErro("Pedido precisa ter pelo menos 1 item");
+                return ValidationResult;
+            }
+
+            pedido.EntregarPedido();
+            _pedidoRepository.Atualizar(pedido);
+            pedido.AdicionarEvento(new PedidoEntregueEventHandler());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> Handle(CancelarPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoStatus == PedidoStatus.Entregue || pedido.PedidoStatus == PedidoStatus.Percurso)
+            {
+                AdicionarErro("Não é possivel cancelar um pedido que está entregue ou em percurso");
+                return ValidationResult;
+            }
+
+            pedido.CancelarPedido();
+            _pedidoRepository.Atualizar(pedido);
+            pedido.AdicionarEvento(new PedidoCanceladoEventHandler());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }       
 
         private bool ValidarComando(Command message)
         {

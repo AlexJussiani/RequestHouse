@@ -43,7 +43,7 @@ namespace RH.Pedidos.Application.Tests
             var pedidoComand = new AdicionarItemPedidoCommand(_pedidoId,
                 _produtoId, "X-tudo", 2, 22);
 
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
             //_mocker.GetMock<IPedidoRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
 
@@ -84,7 +84,7 @@ namespace RH.Pedidos.Application.Tests
             //Arrange
             var item = new PedidoItem(_produtoId, "X-tudo", 2, 22);
             _pedido.AdicionarItem(item);
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
             var pedidoCommand = new EmitirPedidoCommand(_pedidoId);
@@ -103,7 +103,7 @@ namespace RH.Pedidos.Application.Tests
             var pedidoItemExistente = new PedidoItem(_produtoId, "x-salada", 2, 12);
             _pedido.AdicionarItem(pedidoItemExistente);
 
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterItemPorPedido(_pedidoId, _produtoId)).Returns(Task.FromResult(pedidoItemExistente));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
@@ -128,7 +128,7 @@ namespace RH.Pedidos.Application.Tests
             var pedidoItemExistente = new PedidoItem(_produtoId, "x-salada", 2, 12);
             _pedido.AdicionarItem(pedidoItemExistente);
 
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterItemPorPedido(_pedidoId, _produtoId)).Returns(Task.FromResult(pedidoItemExistente));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
@@ -153,7 +153,7 @@ namespace RH.Pedidos.Application.Tests
 
             var pedidoCommand = new AdicionarItemPedidoCommand(_pedidoId, Guid.NewGuid(), "x-salada", 2, 12);
 
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
             // Act
@@ -176,7 +176,7 @@ namespace RH.Pedidos.Application.Tests
 
             var pedidoCommand = new AdicionarItemPedidoCommand(_pedidoId, _produtoId, "x-tudo", 2, 22);
 
-            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
             // Act

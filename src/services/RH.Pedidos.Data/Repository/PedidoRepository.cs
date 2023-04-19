@@ -42,9 +42,9 @@ namespace RH.Pedidos.Data.Repository
             return await _context.Pedidos.Where(p => p.PedidoStatus == PedidoStatus.Rascunho).ToListAsync();
         }
 
-        public async Task<Pedido> ObterPedidoRascunhoPorPedidoId(Guid pedidoId)
+        public async Task<Pedido> ObterPorPedidoId(Guid pedidoId)
         {
-            var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.Id == pedidoId && p.PedidoStatus == PedidoStatus.Rascunho);
+            var pedido = await _context.Pedidos.FirstOrDefaultAsync(p => p.Id == pedidoId);
             if (pedido == null) return null;
 
             await _context.Entry(pedido)

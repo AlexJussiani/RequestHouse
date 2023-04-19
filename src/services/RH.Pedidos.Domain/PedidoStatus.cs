@@ -9,7 +9,7 @@ namespace RH.Pedidos.Domain
     public enum PedidoStatus
     {
         Rascunho = 1,
-        Criado = 2,
+        Emitido = 2,
         Autorizado = 3,
         Percurso = 4,
         Entregue = 5,

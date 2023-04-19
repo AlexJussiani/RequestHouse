@@ -87,12 +87,26 @@ namespace RH.Pedidos.Domain
 
         public void EmitirPedido()
         {
-            PedidoStatus = PedidoStatus.Criado;
+            PedidoStatus = PedidoStatus.Emitido;
         }
 
         public void AutorizarPedido()
         {
             PedidoStatus = PedidoStatus.Autorizado;
+        }
+        public void DespacharPedido()
+        {
+            PedidoStatus = PedidoStatus.Percurso;
+        }
+
+        public void EntregarPedido()
+        {
+            PedidoStatus = PedidoStatus.Entregue;
+        }
+
+        public void CancelarPedido()
+        {
+            PedidoStatus = PedidoStatus.Cancelado;
         }
 
         public static class PedidoFactory
