@@ -44,6 +44,14 @@ namespace RH.Pedidos.API.Controllers
             return CustomResponse(await _mediatorHandler.Send(command));
         }
 
+        [ClaimsAuthorize("Pedido", "Emitir")]
+        [HttpPost("api/pedido")]
+        public async Task<IActionResult> EmitirPedido(Guid pedidoId)
+        {
+            var command = new EmitirPedidoCommand(pedidoId);
+            return CustomResponse(await _mediatorHandler.Send(command));
+        }
+
         [ClaimsAuthorize("Pedido", "Adicionar")]
         [HttpPost("api/pedidoItem")]
         public async Task<IActionResult> AdicionarItemPedido([FromBody] ItemViewModel item)

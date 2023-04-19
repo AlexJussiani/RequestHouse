@@ -15,7 +15,8 @@ namespace RH.Pedidos.API.Application.Commands
         IRequestHandler<AdicionarItemPedidoCommand, ValidationResult>,
         IRequestHandler<AtualizarItemPedidoCommand, ValidationResult>,
         IRequestHandler<RemoverItemPedidoCommand, ValidationResult>,
-        IRequestHandler<AdicionarPedidoCommand, ValidationResult>
+        IRequestHandler<AdicionarPedidoCommand, ValidationResult>,
+        IRequestHandler<EmitirPedidoCommand, ValidationResult>
     {
 
         private readonly IMediator _mediator;
@@ -135,7 +136,32 @@ namespace RH.Pedidos.API.Application.Commands
             pedido.AdicionarEvento(new PedidoItemExcluidoEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
-        }        
+        }
+
+        public async Task<ValidationResult> Handle(EmitirPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPedidoRascunhoPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if(pedido.PedidoStatus != PedidoStatus.Rascunho)
+            {
+                AdicionarErro("Para emitir o Pedido ele precisa estar em Rascunho");
+                return ValidationResult;
+            }
+
+            pedido.EmitirPedido();
+            _pedidoRepository.Atualizar(pedido);
+            pedido.AdicionarEvento(new PedidoEmitidoEventHandler());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+        }
 
         private bool ValidarComando(Command message)
         {

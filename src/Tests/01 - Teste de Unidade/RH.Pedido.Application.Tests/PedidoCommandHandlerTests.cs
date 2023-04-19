@@ -77,6 +77,24 @@ namespace RH.Pedidos.Application.Tests
             //_mocker.GetMock<IMediator>().Verify(r => r.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Once);
         }
 
+        [Fact(DisplayName = "Emitir Pedido com Sucesso")]
+        [Trait("Categoria", "Pedidos - Pedido Command Handler")]
+        public async Task AutorizarPedido_NovoPedido_DeveExecutarComSucesso()
+        {
+            //Arrange
+            var item = new PedidoItem(_produtoId, "X-tudo", 2, 22);
+            _pedido.AdicionarItem(item);
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
+
+            var pedidoCommand = new EmitirPedidoCommand(_pedidoId);
+
+            // Act
+            var result = await _pedidoHandler.Handle(pedidoCommand, CancellationToken.None);
+            _mocker.GetMock<IPedidoRepository>().Verify(r => r.Atualizar(It.IsAny<Pedido>()), Times.Once);
+            _mocker.GetMock<IPedidoRepository>().Verify(r => r.UnitOfWork.Commit(), Times.Once);
+        }
+
         [Fact(DisplayName = "Atualizar Novo Item Pedido Rascunho com Sucesso")]
         [Trait("Categoria", "Pedidos - Pedido Command Handler")]
         public async Task AtualizarItem_NovoItemAoPedidoRascunho_DeveExecutarComSucesso()
@@ -86,6 +104,7 @@ namespace RH.Pedidos.Application.Tests
             _pedido.AdicionarItem(pedidoItemExistente);
 
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterPedidoRascunhoPorPedidoId(_pedidoId)).Returns(Task.FromResult(_pedido));
+            _mocker.GetMock<IPedidoRepository>().Setup(r => r.ObterItemPorPedido(_pedidoId, _produtoId)).Returns(Task.FromResult(pedidoItemExistente));
             _mocker.GetMock<IPedidoRepository>().Setup(r => r.UnitOfWork.Commit()).Returns(Task.FromResult(true));
 
 

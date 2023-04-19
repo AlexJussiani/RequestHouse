@@ -85,6 +85,16 @@ namespace RH.Pedidos.Domain
             PedidoStatus = PedidoStatus.Rascunho;
         }
 
+        public void EmitirPedido()
+        {
+            PedidoStatus = PedidoStatus.Criado;
+        }
+
+        public void AutorizarPedido()
+        {
+            PedidoStatus = PedidoStatus.Autorizado;
+        }
+
         public static class PedidoFactory
         {
             public static Pedido NovoPedidoRascunho(Guid clienteId)
