@@ -41,7 +41,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             _pedidoRepository.Adicionar(pedido);
 
-            pedido.AdicionarEvento(new PedidoItemAdicionadoEvent());
+            pedido.AdicionarEvento(new PedidoAdicionadoEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }
@@ -168,7 +168,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             pedido.EmitirPedido();
             _pedidoRepository.Atualizar(pedido);
-            pedido.AdicionarEvento(new PedidoEmitidoEventHandler());
+            pedido.AdicionarEvento(new PedidoEmitidoEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }
@@ -199,7 +199,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             pedido.AutorizarPedido();
             _pedidoRepository.Atualizar(pedido);
-            pedido.AdicionarEvento(new PedidoAutorizadoEventHandler());
+            pedido.AdicionarEvento(new PedidoAutorizadoEvent(pedido.Codigo, pedido.Id, pedido.ClienteId, pedido.ValorTotal));
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }
@@ -230,7 +230,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             pedido.DespacharPedido();
             _pedidoRepository.Atualizar(pedido);
-            pedido.AdicionarEvento(new PedidoDespachadoEventHandler());
+            pedido.AdicionarEvento(new PedidoDespachadoEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }
@@ -261,7 +261,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             pedido.EntregarPedido();
             _pedidoRepository.Atualizar(pedido);
-            pedido.AdicionarEvento(new PedidoEntregueEventHandler());
+            pedido.AdicionarEvento(new PedidoEntregueEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }
@@ -286,7 +286,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             pedido.CancelarPedido();
             _pedidoRepository.Atualizar(pedido);
-            pedido.AdicionarEvento(new PedidoCanceladoEventHandler());
+            pedido.AdicionarEvento(new PedidoCanceladoEvent());
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }       

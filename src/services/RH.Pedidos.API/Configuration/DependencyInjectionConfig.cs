@@ -22,6 +22,15 @@ namespace RH.Pedidos.API.Configuration
 
             // Events
             services.AddScoped<INotificationHandler<PedidoItemAdicionadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoAdicionadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoAutorizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoCanceladoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoDespachadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoEmitidoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoEntregueEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoItemAtualizadoEvent>, PedidoEventHandler>();
+            services.AddScoped<INotificationHandler<PedidoItemExcluidoEvent>, PedidoEventHandler>();
+
 
             // Application
             services.AddScoped<IMediatorHandler, MediatorHandler>();

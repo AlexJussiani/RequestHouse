@@ -2,7 +2,7 @@
 
 namespace RH.Pedidos.API.Application.Events
 {
-    public class PedidoDespachadoEventHandler : Event
+    public class PedidoDespachadoEvent : Event
     {
     }
 }

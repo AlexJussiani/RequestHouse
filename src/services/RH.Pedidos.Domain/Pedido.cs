@@ -93,6 +93,7 @@ namespace RH.Pedidos.Domain
         public void AutorizarPedido()
         {
             PedidoStatus = PedidoStatus.Autorizado;
+            DataAutorizacao = DateTime.Now;
         }
         public void DespacharPedido()
         {
@@ -102,11 +103,13 @@ namespace RH.Pedidos.Domain
         public void EntregarPedido()
         {
             PedidoStatus = PedidoStatus.Entregue;
+            DataConclusao = DateTime.Now;
         }
 
         public void CancelarPedido()
         {
             PedidoStatus = PedidoStatus.Cancelado;
+            DataConclusao = DateTime.Now;
         }
 
         public static class PedidoFactory
