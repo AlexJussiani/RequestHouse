@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RH.Pedidos.Domain;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using RH.Core.DomainObjects;
+using FluentValidation.Results;
 using System.Threading.Tasks;
 using System;
 using RH.Core.Data;

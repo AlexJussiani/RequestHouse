@@ -62,6 +62,11 @@ namespace RH.Pedidos.API.Application.Commands
                 AdicionarErro("Pedido Não Encontrado");
                 return ValidationResult;
             }
+            if (pedido.PedidoStatus != PedidoStatus.Rascunho)
+            {
+                AdicionarErro("O Pedido precisa estar em rascunho para adicioanr Itens");
+                return ValidationResult;
+            }
             else
             {
                 var pedidoItemExistente = pedido.ItemExistente(pedidoItem);
@@ -94,6 +99,11 @@ namespace RH.Pedidos.API.Application.Commands
                 AdicionarErro("Pedido Não Encontrado");
                 return ValidationResult;
             }
+            if (pedido.PedidoStatus != PedidoStatus.Rascunho)
+            {
+                AdicionarErro("O Pedido precisa estar em rascunho para adicioanr Itens");
+                return ValidationResult;
+            }
 
             var pedidoItem = await _pedidoRepository.ObterItemPorPedido(message.PedidoId, message.ProdutoId);
 
@@ -121,6 +131,12 @@ namespace RH.Pedidos.API.Application.Commands
             if (pedido == null)
             {
                 AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoStatus != PedidoStatus.Rascunho)
+            {
+                AdicionarErro("O Pedido precisa estar em rascunho para adicioanr Itens");
                 return ValidationResult;
             }
 
