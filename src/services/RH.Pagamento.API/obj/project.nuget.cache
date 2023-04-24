@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "+OmOQAolu1+CDeRiKo2CuudHChGPe7vIgCqsFyfdWqA6V6c4I/p10DDfz63ZbEDT8y3HpBY0s1a/L+mCxy7tlw==",
+  "dgSpecHash": "Qw4XmnZ7x6XkCBZpo1f5vYKFt0o09PGDfJwMfCF+fdC2pE+xWrCJ/qR5+nHGJldkbSsxttU1yM0ZVJ+1BRmmrg==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj",
   "expectedPackageFiles": [
@@ -65,6 +65,7 @@
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.17\\microsoft.entityframeworkcore.design.5.0.17.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.17\\microsoft.entityframeworkcore.relational.5.0.17.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.17\\microsoft.entityframeworkcore.sqlserver.5.0.17.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.17\\microsoft.entityframeworkcore.tools.5.0.17.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
