@@ -37,7 +37,7 @@ namespace RH.Pedidos.API.Application.Commands
 
     public class AdicionarItemPedidoValidation : AbstractValidator<AdicionarItemPedidoCommand>
     {
-        public static string IdClienteErroMsg => "Id do cliente inválido";
+        public static string IdPedidoErroMsg => "Id do pedido inválido";
         public static string IdProdutoErroMsg => "Id do produto inválido";
         public static string NomeErroMsg => "O nome do produto não foi informado";
         public static string QtdItemErroMsg => $"A quantidade precisa ser maior que zero";
@@ -48,7 +48,7 @@ namespace RH.Pedidos.API.Application.Commands
         {
             RuleFor(c => c.PedidoId)
                 .NotEqual(Guid.Empty)
-                .WithMessage(IdClienteErroMsg);
+                .WithMessage(IdPedidoErroMsg);
 
             RuleFor(c => c.ProdutoId)
                 .NotEqual(Guid.Empty)

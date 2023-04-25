@@ -19,7 +19,7 @@ namespace RH.Pagamento.API.Models
 
         public IReadOnlyCollection<PagamentoConta> ContaPagamentos => _contaPagamentos;
 
-        public Conta(int codigo, Guid pedidoId, Guid clienteId, decimal valorTotal, DateTime dataCadastro, DateTime dataVencimento)
+        public Conta(int codigo, Guid pedidoId, Guid clienteId, decimal valorTotal, DateTime dataVencimento)
         {
             Codigo = codigo;
             PedidoId = pedidoId;

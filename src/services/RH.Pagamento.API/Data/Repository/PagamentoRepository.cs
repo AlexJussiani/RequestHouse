@@ -1,5 +1,8 @@
-﻿using RH.Core.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using RH.Core.Data;
 using RH.Pagamento.API.Models;
+using System;
+using System.Threading.Tasks;
 
 namespace RH.Pagamento.API.Data.Repository
 {
@@ -12,6 +15,11 @@ namespace RH.Pagamento.API.Data.Repository
             _context = context;
         }
 
+        public async Task<Conta> ObterContaPorIdPedido(Guid idPedido)
+        {
+            return await _context.Contas.FirstOrDefaultAsync(c => c.PedidoId == idPedido);
+        }
+
         public IUnitOfWork UnitOfWork => _context;
 
         public void Adicionar(Conta conta)
@@ -22,6 +30,6 @@ namespace RH.Pagamento.API.Data.Repository
         public void Dispose()
         {
             _context.Dispose();
-        }
+        }        
     }
 }

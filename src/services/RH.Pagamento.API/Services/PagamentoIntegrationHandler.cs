@@ -1,6 +1,9 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RH.Core.Messages.Integration;
 using RH.MessageBus;
+using RH.Pagamento.API.Application.Commands;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -31,7 +34,12 @@ namespace RH.Pagamento.API.Services
         }
         private async Task ProcessarConta(PedidoAutorizadoIntegrationEvent message)
         {
-            await Task.CompletedTask;
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var commandHandler = scope.ServiceProvider.GetRequiredService<IMediator>();
+                var command = new AdicionarContaCommand(message.CodigoPedido, message.PedidoId, message.ClienteId, message.Valor);
+                await commandHandler.Send(command);
+            }
         }
     }
 }
