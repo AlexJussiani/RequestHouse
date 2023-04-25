@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RH.Pagamento.API.Data;
 
 namespace RH.Pagamento.API.Migrations
 {
     [DbContext(typeof(PagamentoContext))]
-    partial class PagamentoContextModelSnapshot : ModelSnapshot
+    [Migration("20230425114216_Alter_campo_ativo_default_true")]
+    partial class Alter_campo_ativo_default_true
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,11 +27,10 @@ namespace RH.Pagamento.API.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<bool>("Cancelado")
+                    b.Property<bool>("Ativo")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
-                        .HasDefaultValue(false)
-                        .HasColumnName("cancelado");
+                        .HasDefaultValue(true);
 
                     b.Property<Guid>("ClienteId")
                         .HasColumnType("uniqueidentifier")

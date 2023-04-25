@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RH.Pagamento.API.Data;
 
 namespace RH.Pagamento.API.Migrations
 {
     [DbContext(typeof(PagamentoContext))]
-    partial class PagamentoContextModelSnapshot : ModelSnapshot
+    [Migration("20230425114719_drop_campo_ativo_add_campo_cancelado")]
+    partial class drop_campo_ativo_add_campo_cancelado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

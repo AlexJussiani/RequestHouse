@@ -50,9 +50,9 @@ namespace RH.Pedidos.API.Application.Events
             await _bus.PublishAsync(new PedidoAutorizadoIntegrationEvent(message.CodigoPedido, message.PedidoId, message.ClienteId, message.ValorPedido));
         }
 
-        public Task Handle(PedidoCanceladoEvent notification, CancellationToken cancellationToken)
+        public async Task Handle(PedidoCanceladoEvent message, CancellationToken cancellationToken)
         {
-            return Task.CompletedTask;
+            await _bus.PublishAsync(new PedidoCanceladoIntegrationEvent(message.PedidoId));
         }
 
         public Task Handle(PedidoDespachadoEvent notification, CancellationToken cancellationToken)

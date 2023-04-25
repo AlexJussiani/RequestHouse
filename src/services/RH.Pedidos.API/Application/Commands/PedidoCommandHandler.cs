@@ -302,7 +302,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             pedido.CancelarPedido();
             _pedidoRepository.Atualizar(pedido);
-            pedido.AdicionarEvento(new PedidoCanceladoEvent());
+            pedido.AdicionarEvento(new PedidoCanceladoEvent(pedido.Id));
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
         }       

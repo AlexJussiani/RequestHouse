@@ -11,7 +11,9 @@ using System.Threading.Tasks;
 namespace RH.Pagamento.API.Application.Commands
 {
     public class ContaCommandHandler : CommandHandler,
-        IRequestHandler<AdicionarContaCommand, ValidationResult>
+        IRequestHandler<AdicionarContaCommand, ValidationResult>,
+        IRequestHandler<CancelarContaCommand, ValidationResult>,
+        IRequestHandler<RegistrarPagamentoCommand, ValidationResult>
     {
         private readonly IMediator _mediator;
         private readonly IPagamentoRepository _PagamentoRepository;
@@ -26,9 +28,9 @@ namespace RH.Pagamento.API.Application.Commands
         {
             if (!ValidarComando(message)) return message.ValidationResult;
 
-            var pedidoExistente = await _PagamentoRepository.ObterContaPorIdPedido(message.PedidoId);
+            var contaExistente = await _PagamentoRepository.ObterContaPorIdPedido(message.PedidoId);
 
-            if(pedidoExistente != null)
+            if(contaExistente != null)
             {
                 AdicionarErro("Já existe uma conta cadastrada para esse pedido");
                 return ValidationResult;
@@ -36,12 +38,59 @@ namespace RH.Pagamento.API.Application.Commands
 
             var conta = new Conta(message.Codigo, message.PedidoId, message.ClienteId, message.ValorTotal, message.DataVencimento);
 
-            _PagamentoRepository.Adicionar(conta);
+            _PagamentoRepository.AdicionarConta(conta);
 
             conta.AdicionarEvento(new ContaAdicionadaEvent());
 
             return await (PersistirDados(_PagamentoRepository.UnitOfWork));
 
+        }
+
+        public async Task<ValidationResult> Handle(CancelarContaCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var contaExistente = await _PagamentoRepository.ObterContaPorIdPedido(message.PedidoId);
+
+            if (contaExistente == null)
+            {
+                AdicionarErro("Pedido Não localizado");
+                return ValidationResult;
+            }
+
+            contaExistente.CancelarConta();
+
+            _PagamentoRepository.AtualizarConta(contaExistente);
+
+            contaExistente.AdicionarEvento(new ContaAdicionadaEvent());
+
+            return await (PersistirDados(_PagamentoRepository.UnitOfWork));
+        }
+
+        public async Task<ValidationResult> Handle(RegistrarPagamentoCommand message, CancellationToken cancellationToken)
+        {
+            var conta = await _PagamentoRepository.ObterContaPorId(message.ContaId);
+
+            if(conta == null)
+            {
+                AdicionarErro("Conta não identificada");
+                return ValidationResult;
+            }
+
+            if (conta.ContaStatus == ContaStatus.Pago)
+            {
+                AdicionarErro("Essa conta já se encontra paga");
+                return ValidationResult;
+            }
+            var pagamento = new PagamentoConta(message.ContaId, message.ValorPago, message.DataPagamento);
+            conta.RealizarPagamento(pagamento);
+
+            _PagamentoRepository.AdicionarPagamento(pagamento);
+            _PagamentoRepository.AtualizarConta(conta);
+
+            conta.AdicionarEvento(new PagamentoContaAdicionadaEvent());
+
+            return await(PersistirDados(_PagamentoRepository.UnitOfWork));
         }
 
         private bool ValidarComando(Command message)

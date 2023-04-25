@@ -31,6 +31,9 @@ namespace RH.Pagamento.API.Services
         {
             _bus.SubscribeAsync<PedidoAutorizadoIntegrationEvent>("PedidoAutorizado",
                 async request => await ProcessarConta(request));
+
+            _bus.SubscribeAsync<PedidoCanceladoIntegrationEvent>("PedidoCancelado",
+                async request => await CancelarConta(request));
         }
         private async Task ProcessarConta(PedidoAutorizadoIntegrationEvent message)
         {
@@ -38,6 +41,16 @@ namespace RH.Pagamento.API.Services
             {
                 var commandHandler = scope.ServiceProvider.GetRequiredService<IMediator>();
                 var command = new AdicionarContaCommand(message.CodigoPedido, message.PedidoId, message.ClienteId, message.Valor);
+                await commandHandler.Send(command);
+            }
+        }
+
+        private async Task CancelarConta(PedidoCanceladoIntegrationEvent message)
+        {
+            using (var scope = _serviceProvider.CreateScope())
+            {
+                var commandHandler = scope.ServiceProvider.GetRequiredService<IMediator>();
+                var command = new CancelarContaCommand(message.PedidoId);
                 await commandHandler.Send(command);
             }
         }

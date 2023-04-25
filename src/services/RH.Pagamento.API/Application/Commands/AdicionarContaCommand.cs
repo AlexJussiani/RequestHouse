@@ -30,7 +30,7 @@ namespace RH.Pagamento.API.Application.Commands
 
     public class AdicionarContaValidation : AbstractValidator<AdicionarContaCommand>
     {
-        public static string CodigoPedidoErroMsg => "Id do pedido inválido";
+        public static string CodigoPedidoErroMsg => "Código do pedido inválido";
         public static string IdPedidoErroMsg => "Id do pedido inválido";
         public static string IdClienteErroMsg => "Id do cliente inválido";
         public static string DataVencimentoErroMsg => "Data de vencimento não informada inválido";

@@ -14,6 +14,11 @@ namespace RH.Pagamento.API.Data.Mappings
                 .IsRequired()
                 .HasColumnName("cliente_id");
 
+            builder.Property(c => c.Cancelado)
+                .HasDefaultValue(false)
+                .IsRequired()
+                .HasColumnName("cancelado");
+
             builder.Property(c => c.PedidoId)
                 .IsRequired()
                 .HasColumnName("pedido_id");
