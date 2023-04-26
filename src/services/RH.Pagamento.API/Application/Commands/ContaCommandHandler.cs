@@ -77,6 +77,12 @@ namespace RH.Pagamento.API.Application.Commands
                 return ValidationResult;
             }
 
+            if (conta.Cancelado)
+            {
+                AdicionarErro("Não é possivel realizar um pagamento de uma conta cancelada");
+                return ValidationResult;
+            }
+
             if (conta.ContaStatus == ContaStatus.Pago)
             {
                 AdicionarErro("Essa conta já se encontra paga");

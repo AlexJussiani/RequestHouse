@@ -17,7 +17,13 @@ namespace RH.Pagamento.API.Data.Repository
 
         public async Task<Conta> ObterContaPorId(Guid id)
         {
-            return await _context.Contas.FirstOrDefaultAsync(c => c.Id == id);
+            var conta = await _context.Contas.FirstOrDefaultAsync(c => c.Id == id);
+            if (conta == null) return null;
+
+            await _context.Entry(conta)
+                .Collection(i => i.ContaPagamentos).LoadAsync();
+
+            return conta;
         }
 
         public async Task<Conta> ObterContaPorIdPedido(Guid idPedido)

@@ -90,3 +90,4 @@ C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.AP
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.pdb
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.genruntimeconfig.cache
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\ref\RH.Identidade.API.dll
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\appsettings.Testing.json

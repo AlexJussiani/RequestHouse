@@ -19,7 +19,7 @@ namespace RH.Pagamento.API.Models
         private readonly List<PagamentoConta> _contaPagamentos;        
 
         public IReadOnlyCollection<PagamentoConta> ContaPagamentos => _contaPagamentos;
-
+       
         public Conta(int codigo, Guid pedidoId, Guid clienteId, decimal valorTotal, DateTime dataVencimento)
         {
             Codigo = codigo;
@@ -30,11 +30,12 @@ namespace RH.Pagamento.API.Models
             DataVencimento = dataVencimento;
             ContaStatus = ContaStatus.Pendente;
             Cancelado = false;
+            _contaPagamentos = new List<PagamentoConta>();
         }
 
         public void RealizarPagamento(PagamentoConta pagamento)
         {
-            pagamento.AssociarConta(pagamento.ContaId);
+            pagamento.AssociarConta(Id);
             _contaPagamentos.Add(pagamento);
             AtualizarValorPago();
             AtualizarStatusConta();
@@ -47,7 +48,7 @@ namespace RH.Pagamento.API.Models
                 ContaStatus = ContaStatus.Pendente;
                 return;
             }
-            if (ValorPago < ValorPago)
+            if (ValorPago < ValorTotal)
             {
                 ContaStatus = ContaStatus.Parcial;
                 return;

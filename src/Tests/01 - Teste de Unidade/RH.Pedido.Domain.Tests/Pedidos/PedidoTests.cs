@@ -1,11 +1,12 @@
 ﻿using RH.Core.DomainObjects;
+using RH.Pedidos.Domain;
 using System;
 using System.Linq;
 using Xunit;
 
-namespace RH.Pedidos.Domain.Tests
+namespace RequestHouse.Domain.Tests.Pedidos
 {
-    
+
     public class PedidoTests
     {
         [Fact(DisplayName = "Adicionar Item Novo Pedido")]
@@ -17,7 +18,7 @@ namespace RH.Pedidos.Domain.Tests
             var pedidoItem = new PedidoItem(Guid.NewGuid(), "X-tudo", 2, 22);
 
             //Act
-             pedido.AdicionarItem(pedidoItem);
+            pedido.AdicionarItem(pedidoItem);
 
             //Assert
             Assert.Equal(44, pedido.ValorTotal);
@@ -100,7 +101,7 @@ namespace RH.Pedidos.Domain.Tests
             var produtoId = Guid.NewGuid();
             var pedidoItem = new PedidoItem(produtoId, "Produto Teste", 2, 100);
             // Act Assert
-            Assert.Throws<DomainException>(() => pedido.AtualizarItem(pedidoItem));            
+            Assert.Throws<DomainException>(() => pedido.AtualizarItem(pedidoItem));
         }
 
         [Fact(DisplayName = "Remover Item Pedido Deve Calcular Valor Total")]

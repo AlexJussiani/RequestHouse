@@ -31,7 +31,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 - Teste de Integracao", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pedidos.Application.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Application.Tests\RH.Pedidos.Application.Tests.csproj", "{8F8FEC63-18CC-4412-823A-BB666CF77167}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pedidos.Domain.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Domain.Tests\RH.Pedidos.Domain.Tests.csproj", "{26FAA901-53C0-456D-8EF8-1D26D365A342}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RequestHouse.Domain.Tests", "src\Tests\01 - Teste de Unidade\RH.Pedido.Domain.Tests\RequestHouse.Domain.Tests.csproj", "{26FAA901-53C0-456D-8EF8-1D26D365A342}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{76DA5C3F-9EBE-4519-AD7D-01C9CABD1B8E}"
 EndProject
