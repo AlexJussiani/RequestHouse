@@ -59,5 +59,21 @@ namespace RequestHouse.Domain.Tests.Pagamento
             Assert.Equal(100, conta.ValorPago);
             Assert.Equal(ContaStatus.Pago, conta.ContaStatus);
         }
+
+        [Fact(DisplayName = "Adicionar Pagamento novo pagamento Parcial em conta Parcial")]
+        [Trait("Categoria", "Pagamento")]
+        public void RemoverPagamento_ContaPaga_DeveAtualizarValorContaAtulizarStatus()
+        {
+            //Arange
+            var conta = new Conta(1, Guid.NewGuid(), Guid.NewGuid(), 100, DateTime.Now);
+            var pagamentoConta = new PagamentoConta(conta.Id, 100, DateTime.Now);
+            conta.RealizarPagamento(pagamentoConta);         
+            //Act
+            conta.RemoverPagamento(pagamentoConta);
+
+            //Assert
+            Assert.Equal(0, conta.ValorPago);
+            Assert.Equal(ContaStatus.Pendente, conta.ContaStatus);
+        }
     }
 }

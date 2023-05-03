@@ -41,6 +41,20 @@ namespace RH.Pagamento.API.Models
             AtualizarStatusConta();
         }
 
+        public void RemoverPagamento(PagamentoConta pagamento)
+        {
+            if(!ItemExistente(pagamento)) throw new DomainException("Esse pagamento não pertence a essa fatura");
+
+            _contaPagamentos.Remove(pagamento);
+            AtualizarValorPago();
+            AtualizarStatusConta();
+        }
+
+        public bool ItemExistente(PagamentoConta item)
+        {
+            return _contaPagamentos.Any(i => i.Id == item.Id);
+        }
+
         public void AtualizarStatusConta()
         {
             if(ValorPago == 0)

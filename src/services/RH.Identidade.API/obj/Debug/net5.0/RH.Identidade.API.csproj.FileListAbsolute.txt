@@ -5,7 +5,6 @@ C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.AP
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.csproj.CoreCompileInputs.cache
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\appsettings.json
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\RH.Identidade.API.StaticWebAssets.xml
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\RH.Identidade.API.exe
@@ -90,4 +89,5 @@ C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.AP
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.pdb
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\RH.Identidade.API.genruntimeconfig.cache
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\obj\Debug\net5.0\ref\RH.Identidade.API.dll
+C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\appsettings.Development2.json
 C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Identidade.API\bin\Debug\net5.0\appsettings.Testing.json
