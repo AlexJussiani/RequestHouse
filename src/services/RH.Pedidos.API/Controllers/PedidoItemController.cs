@@ -8,6 +8,7 @@ using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries;
 using RH.Pedidos.API.Application.Queries.ViewModels;
 using RH.Pedidos.API.Services;
+using RH.Pedidos.Domain;
 using System;
 using System.Threading.Tasks;
 
@@ -25,6 +26,13 @@ namespace RH.Pedidos.API.Controllers
             _mediatorHandler = mediatorHandler;
             _queries = queries;
             _user = user;
+        }
+        [ClaimsAuthorize("Pedido", "Visualizar")]
+        [HttpGet("api/lista-pedidos")]
+        public async Task<IActionResult> ObterPedidos()
+        {
+            var pedidos = await _queries.ObterListaPedidos();
+            return pedidos == null ? NotFound() : CustomResponse(pedidos);
         }
 
         [ClaimsAuthorize("Pedido", "Visualizar")]

@@ -22,9 +22,23 @@ namespace RH.Pedidos.API.Application.Queries
             _pedidoRepository = pedidoRepository;
         }
 
-        public Task<IEnumerable<PedidoDTO>> ObterListaPedidos()
+        public async Task<IEnumerable<PedidoDTO>> ObterListaPedidos()
         {
-            throw new NotImplementedException();
+            const string sql = @"SELECT 
+                 p.id AS 'IdPedido'
+                 ,p.codigo AS 'Codigo'
+                 ,p.clienteId AS 'ClienteId'
+                 ,p.ValorTotal AS 'ValorTotal'
+                 ,p.data_cadastro AS 'DataCadastro'
+                 ,p.data_autorizacao AS 'DataAutorizacao'
+                 ,p.data_conclusao AS 'DataConclusao'
+                 ,p.PedidoStatus AS 'PedidoStatus'
+                 
+                FROM pedidos p";
+            var pedidos = await _pedidoRepository.ObterConexao()
+                .QueryAsync<dynamic>(sql);
+
+            return pedidos == null ? null : MapearListaPedidos(pedidos);
         }
 
         public async Task<PedidoDTO> ObterPedidoPorId(Guid pedidoId)
@@ -50,7 +64,7 @@ namespace RH.Pedidos.API.Application.Queries
 
             var pedido = await _pedidoRepository.ObterConexao()
                 .QueryAsync<dynamic>(sql, new { pedidoId });
-            
+
             return pedido == null ? null : MapearPedido(pedido);
         }
 
@@ -67,10 +81,10 @@ namespace RH.Pedidos.API.Application.Queries
                 PedidoStatus = result[0].PedidoStatus,
                 ValorTotal = result[0].ValorTotal,
 
-               PedidoItems = new List<PedidoItemDTO>()
+                PedidoItems = new List<PedidoItemDTO>()
             };
 
-            foreach(var item in result)
+            foreach (var item in result)
             {
                 var pedidoItem = new PedidoItemDTO
                 {
@@ -85,6 +99,27 @@ namespace RH.Pedidos.API.Application.Queries
             }
 
             return pedido;
+        }
+        private List<PedidoDTO> MapearListaPedidos(dynamic results)
+        {
+            var pedidos = new List<PedidoDTO>();
+            foreach (var item in results)
+            {
+                pedidos.Add(
+                    new PedidoDTO
+                    {
+                        IdPedido = item.IdPedido,
+                        Codigo = item.Codigo,
+                        ClienteId = item.ClienteId,
+                        DataAutorizacao = item.DataAutorizacao,
+                        DataCadastro = item.DataCadastro,
+                        DataConclusao = item.DataConclusao,
+                        PedidoStatus = item.PedidoStatus,
+                        ValorTotal = item.ValorTotal,
+                    }
+                );
+            }
+            return pedidos;
         }
     }
 }
