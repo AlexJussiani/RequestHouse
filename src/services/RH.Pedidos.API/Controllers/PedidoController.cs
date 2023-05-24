@@ -1,13 +1,13 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using RH.Core.Controllers;
-using RH.Core.Identidade;
-using RH.Core.Usuario;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries;
 using System.Threading.Tasks;
 using System;
 using RH.Pedidos.API.Application.Queries.ViewModels;
+using RH.Core.Controllers;
+using RH.Core.Usuario;
+using RH.Core.Identidade;
 
 namespace RH.Pedidos.API.Controllers
 {

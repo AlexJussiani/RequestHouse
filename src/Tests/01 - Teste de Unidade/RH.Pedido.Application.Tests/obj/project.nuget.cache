@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JPZ8zkgltSAYK/AeviE3rsJttz8jXbyjxl83iKrdxr579oHqhy/m7hBs9t2ID7Ojz4Z0bejkNZdOovWoIx1QgQ==",
+  "dgSpecHash": "7lr7IEuqQ572j4XMjYHua4EuKx1aLG+/wx7XxHCu8MXMkgprhTchw8v/Nh2JPUMtej9bMIOtVepHLYU1PhEZsg==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
   "expectedPackageFiles": [

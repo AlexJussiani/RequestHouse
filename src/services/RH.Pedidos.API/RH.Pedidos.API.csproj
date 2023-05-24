@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\building blocks\RH.Core\RH.Core.csproj" />
     <ProjectReference Include="..\..\building blocks\RH.MessageBus\RH.MessageBus.csproj" />
     <ProjectReference Include="..\RH.Pedidos.Data\RH.Pedidos.Data.csproj" />
   </ItemGroup>
