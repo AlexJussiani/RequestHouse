@@ -24,6 +24,31 @@ namespace RH.Pedidos.API.Controllers
             _queries = queries;
         }
 
+        [ClaimsAuthorize("Pedido", "Visualizar")]
+        [HttpGet("api/lista-pedidos-autorizados")]
+        public async Task<IActionResult> ObterPedidosAutorizados()
+        {
+            var pedidos = await _queries.ObterListaPedidosAutorizados();
+            return pedidos == null ? NotFound() : CustomResponse(pedidos);
+        }
+
+        [ClaimsAuthorize("Pedido", "Visualizar")]
+        [HttpGet("api/lista-pedidos")]
+        public async Task<IActionResult> ObterPedidos()
+        {
+            var pedidos = await _queries.ObterListaPedidos();
+            return pedidos == null ? NotFound() : CustomResponse(pedidos);
+        }
+
+        [ClaimsAuthorize("Pedido", "Visualizar")]
+        [HttpGet("api/pedido")]
+        public async Task<IActionResult> ObterPedidoPorId(Guid pedidoId)
+        {
+            var pedido = await _queries.ObterPedidoPorId(pedidoId);
+
+            return pedido == null ? NotFound() : CustomResponse(pedido);
+        }
+
         [ClaimsAuthorize("Pedido", "Adicionar")]
         [HttpPost("api/pedido")]
         public async Task<IActionResult> AdicionarPedido([FromBody] PedidoViewModel item)

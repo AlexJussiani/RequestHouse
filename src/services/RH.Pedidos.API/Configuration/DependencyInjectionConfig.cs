@@ -9,6 +9,7 @@ using RH.Pedidos.API.Application.Events;
 using RH.Pedidos.API.Application.Queries;
 using RH.Pedidos.Data;
 using RH.Pedidos.Data.Repository;
+using static RH.Pedidos.API.Application.Queries.IPedidoQueries;
 
 namespace RH.Pedidos.API.Configuration
 {
