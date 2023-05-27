@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RH.Produto.API
+namespace RH.Produtos.API
 {
     public class Program
     {

@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Cliente.API", "src\servi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pagamento.API", "src\services\RH.Pagamento.API\RH.Pagamento.API.csproj", "{5D70C820-1C4A-45E4-9FB3-425498E6D785}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Produto.API", "src\services\RH.Produto.API\RH.Produto.API.csproj", "{077973E5-15F5-42A8-8D32-F939E2D39684}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Produtos.API", "src\services\RH.Produto.API\RH.Produtos.API.csproj", "{077973E5-15F5-42A8-8D32-F939E2D39684}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Tests", "01 - Tests", "{F5A6CB6A-4637-4FDF-9EE8-083A40565E74}"
 EndProject

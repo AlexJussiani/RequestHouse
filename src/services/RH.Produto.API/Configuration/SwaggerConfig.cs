@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;
 
-namespace RH.Pagamento.API.Configuration
+namespace RH.Produtos.API.Configuration
 {
     public static class SwaggerConfig
     {
@@ -14,7 +14,7 @@ namespace RH.Pagamento.API.Configuration
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Title = "Pagamento API",
-                    Description = "Esta API é para gerenciar os pagamentos realizados",
+                    Description = "Esta API é para gerenciar os produtos realizados",
                     Contact = new OpenApiContact() { Name = "Alex Jussiani", Email = "alexjunior.jussiani@hotmail.com" },
                     License = new OpenApiLicense() { Name = "MIT", Url = new Uri("https://opensource.org/licenses/MIT") }
                 });
