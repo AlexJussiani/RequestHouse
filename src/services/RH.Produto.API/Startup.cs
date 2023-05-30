@@ -36,6 +36,8 @@ namespace RH.Produtos.API
 
             services.AddJwtConfiguration(Configuration);
 
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddSwaggerConfiguration();
 
            // services.AddMediatR(typeof(Startup));

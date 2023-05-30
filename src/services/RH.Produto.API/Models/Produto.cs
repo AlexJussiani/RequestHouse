@@ -25,5 +25,33 @@ namespace RH.Produtos.API.Models
             Entrada = entrada;
         }
 
+        public void AlterarNome(string nome)
+        {
+            Nome = nome;
+        }
+        public void AlterarDescricao(string descricao)
+        {
+            Descricao = descricao;
+        }
+
+        public void AlterarStatus(bool ativo)
+        {
+            Ativo = ativo;
+        }
+
+        public void AlterarValor(decimal valor)
+        {
+            Valor = valor;
+        }
+
+        public void AlterarTipoSaida(bool saida)
+        {
+            Saida = saida;
+        }
+        public void AlterarTipoEntrada(bool entrada)
+        {
+            Entrada = entrada;
+        }
+
     }
 }

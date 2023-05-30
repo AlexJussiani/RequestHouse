@@ -1,5 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RH.Produtos.API.Data;
+using RH.Produtos.API.Data.Repository;
+using RH.Produtos.API.Services;
+using AutoMapper;
 
 namespace RH.Produtos.API.Configuration
 {
@@ -9,6 +12,10 @@ namespace RH.Produtos.API.Configuration
         {
             //Data
             services.AddScoped<ProdutosContext>();
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IProdutoService, ProdutoService>();
+
+            
         }
     }
 }
