@@ -4,21 +4,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RH.Clientes.API.Data;
 using RH.Core.Identidade;
-using RH.Identidade.API.Data;
-using RH.Identidade.API.Services;
 
-namespace RH.Identidade.API.Configuration
+namespace RH.Clientes.API.Configuration
 {
     public static class ApiConfig
     {
-        public static IServiceCollection AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
+        public static void AddApiConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<ClientesContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
 
-            services.AddScoped<AuthenticationService>();
+            services.AddControllers();
 
             services.AddCors(options =>
             {
@@ -29,11 +27,9 @@ namespace RH.Identidade.API.Configuration
                             .AllowAnyMethod()
                             .AllowAnyHeader());
             });
-
-            return services;
         }
 
-        public static IApplicationBuilder UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
+        public static void UseApiConfiguration(this IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -52,8 +48,6 @@ namespace RH.Identidade.API.Configuration
             {
                 endpoints.MapControllers();
             });
-
-            return app;
         }
     }
 }

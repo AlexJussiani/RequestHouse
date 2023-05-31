@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pedido", "Pedido", "{3DD4FC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pagamento", "Pagamento", "{2D6BD7A3-6125-48D7-9942-12ACA69CD96A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Cliente.API", "src\services\RH.Cliente.API\RH.Cliente.API.csproj", "{DC08E3E8-5675-47A3-BFE4-51F0CC65A8A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Clientes.API", "src\services\RH.Cliente.API\RH.Clientes.API.csproj", "{DC08E3E8-5675-47A3-BFE4-51F0CC65A8A3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RH.Pagamento.API", "src\services\RH.Pagamento.API\RH.Pagamento.API.csproj", "{5D70C820-1C4A-45E4-9FB3-425498E6D785}"
 EndProject

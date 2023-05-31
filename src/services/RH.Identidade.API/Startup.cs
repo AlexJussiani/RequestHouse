@@ -39,7 +39,7 @@ namespace RH.Identidade.API
         {
             services.AddIdentityConfiguration(Configuration);
 
-            services.AddApiConfiguration();
+            services.AddApiConfiguration(Configuration);
 
             services.AddSwaggerConfiguration();            
         }
