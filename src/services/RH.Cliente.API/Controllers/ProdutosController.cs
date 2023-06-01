@@ -26,10 +26,10 @@ namespace RH.Clientes.API.Controllers
             return CustomResponse(await _repository.ObterTodos());
         }
 
-        [HttpGet("api/produto-obterPorId")]
-        public async Task<IActionResult> ObterPedidoPorId(Guid produtoId)
+        [HttpGet("api/cliente-obterPorId")]
+        public async Task<IActionResult> ObterPedidoPorId(Guid id)
         {
-            return CustomResponse(await _repository.ObterPorId(produtoId));
+            return CustomResponse(await _repository.ObterPorId(id));
         }
 
         [HttpPost()]

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "RequestHouse.Domain.Tests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:61515;http://localhost:61518"
+    }
+  }
+}
