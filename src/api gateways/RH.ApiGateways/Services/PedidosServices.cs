@@ -18,7 +18,7 @@ namespace RH.ApiGateways.Services
     {
         Task<IEnumerable<PedidosDTO>> ObterListaContas();
         Task<PedidosDTO> ObterPedidoPorId(Guid id);
-        Task<ValidationResult> CriarPedido(Guid idCliente);
+        Task<ResponseResult> CriarPedido(Guid idCliente);
         Task<ResponseResult> AdicionarItemPedido(Guid idPedido, Guid idProduto, int quantidade);
     }
     public class PedidosServices : Service, IPedidosService
@@ -58,7 +58,7 @@ namespace RH.ApiGateways.Services
             throw new NotImplementedException();
         }
 
-        public async Task<ValidationResult> CriarPedido(Guid idCliente)
+        public async Task<ResponseResult> CriarPedido(Guid idCliente)
         {
             dynamic clienteId = new ExpandoObject();
             clienteId.ClienteId = idCliente;
@@ -67,13 +67,13 @@ namespace RH.ApiGateways.Services
             if(cliente == null)
             {
                 AdicionarErro("Cliente Não localizado");
-                return ValidationResult;
+                return RetornoValidation();
             }
             var itemContent = ObterConteudo(clienteId);
 
             var response = await _httpClient.PostAsync("pedido/", itemContent);
             if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ValidationResult>(response);
-            return ValidationResult;
+            return RetornoOk(); 
         }
 
         public async Task<ResponseResult> AdicionarItemPedido(Guid idPedido, Guid idProduto, int quantidade)
@@ -86,18 +86,20 @@ namespace RH.ApiGateways.Services
                 return RetornoValidation();
             }
 
-            dynamic itemPedido = new ExpandoObject();
-            itemPedido.ProdutoId = idProduto;
-            itemPedido.PedidoId = idPedido;
-            itemPedido.ProdutoNome = produto.Nome;
-            itemPedido.Quantidade = quantidade;
-            itemPedido.ValorUnitario = produto.Valor;
-
+            //Mapear item pedido
+            var itemPedido = new ItemPedidoDTO
+            {
+                ProdutoId = idProduto,
+                PedidoId = idPedido,
+                ProdutoNome = produto.Nome,
+                Quantidade = quantidade,
+                ValorUnitario = produto.Valor
+            };   
             var itemContent = ObterConteudo(itemPedido);
 
             var response = await _httpClient.PostAsync("pedidoItem/", itemContent);
             if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
             return RetornoOk();
-        }
+        }        
     }
 }
