@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9MKmgF8HSPPmOY+KRTJ1FAdHO8+VtTGsnILNp0eKnpQ1LylhY6QQ7zk3ejfInxMLuxt/C70Hwkukjh8TlilsFA==",
+  "dgSpecHash": "7QFxh4LxHyb5jwHwjm/rSdMyvRGWaTu842vqhzGkAaCZSUJa0AGgZEZLTn6PsKre2TCgdFZHlB6hsTLmD2FsRw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\easynetq\\6.3.1\\easynetq.6.3.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",

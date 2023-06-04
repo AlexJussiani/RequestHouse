@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "u2So+B4yzToivWH1JkOatcl/GDNm/OIEC98eiiFytzK6kpHe5F90gFb/KQxPXpq1QOELn64e+bjkfcJPzIEh+A==",
+  "dgSpecHash": "IBwugm5AqnSsYXWKiM/aOacd3lCMPCCQi1OlTvVNEANweQ7SD7uQnvfgFl8WYRbzPSpiGwcj4aIQEeMTAHpG4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Cliente.API\\RH.Clientes.API.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Cliente.API\\RH.Clientes.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

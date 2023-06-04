@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ansFG/AgWNj1JBJKQMnXARDQ1OfRQXTfBi4q0FU+4gSbq4XEddC00wPWp3JDjW8AHJlMj5H35wHhPyFVF/rMww==",
+  "dgSpecHash": "ye6pqLcmYBP7NhXkJoH5PXCIyiyW0n7GxKJO9Mxq1cJAYCQRK5dpTp+Iyfywh1O1FLkbFh1FQBV4C8srXmFOKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RequestHouse.Domain.Tests.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RequestHouse.Domain.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\easynetq\\6.3.1\\easynetq.6.3.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",

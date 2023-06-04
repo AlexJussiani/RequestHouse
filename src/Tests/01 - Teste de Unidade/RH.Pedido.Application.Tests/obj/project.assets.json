@@ -12476,11 +12476,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
       "projectName": "RH.Pedidos.Application.Tests",
-      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
+      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\RH.Pedidos.Application.Tests.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Application.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -12501,11 +12501,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedidos.API\\RH.Pedidos.API.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedidos.API\\RH.Pedidos.API.csproj"
+            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pedidos.API\\RH.Pedidos.API.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pedidos.API\\RH.Pedidos.API.csproj"
             },
-            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj"
+            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj"
             }
           }
         }

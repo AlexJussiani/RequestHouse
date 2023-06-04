@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj": {}
+    "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj": {
+    "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj",
         "projectName": "RH.Core",
-        "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

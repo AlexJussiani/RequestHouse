@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = RH.Pagamento.API
-build_property.ProjectDir = C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\src\services\RH.Pagamento.API\
+build_property.ProjectDir = C:\Users\DELL\Documents\02 - PROJETOS\RequestHouse\backend\src\services\RH.Pagamento.API\

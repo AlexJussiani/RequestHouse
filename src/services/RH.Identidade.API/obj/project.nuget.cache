@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3MYSy1zCyPd0ox9ra8gPMyNHdTA6rMCyNcbNEttgdzR0VQyA4uHG24kuJZa65Cu5spC4vpm1WtSzQk7KNSigzw==",
+  "dgSpecHash": "btfxdzZTSBHXA3L/sUYAP5qg4P9eG96uO47lCsycErphDcE+Ahi0+n4ZNjYJCMfVSBX/3z2+m5fRYeTOnNwGyA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Identidade.API\\RH.Identidade.API.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Identidade.API\\RH.Identidade.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

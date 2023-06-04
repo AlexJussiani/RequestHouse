@@ -12252,11 +12252,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RequestHouse.Domain.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RequestHouse.Domain.Tests.csproj",
       "projectName": "RequestHouse.Domain.Tests",
-      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RequestHouse.Domain.Tests.csproj",
+      "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\RequestHouse.Domain.Tests.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\obj\\",
+      "outputPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\Tests\\01 - Teste de Unidade\\RH.Pedido.Domain.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -12277,14 +12277,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj"
+            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj"
             },
-            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj"
+            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pagamento.API\\RH.Pagamento.API.csproj"
             },
-            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj": {
-              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj"
+            "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj": {
+              "projectPath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Pedidos.Domain\\RH.Pedidos.Domain.csproj"
             }
           }
         }

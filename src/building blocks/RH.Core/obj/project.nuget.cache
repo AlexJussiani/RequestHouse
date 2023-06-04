@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tQy2LBHEXnSFeC694jWPyw5CRj7XQPmgEHxRxoHwZ5HzY6v2SwkG5mh7YRYqdGpK+ALZ4EwmX7yByfrQjeH5tw==",
+  "dgSpecHash": "xlQ2C/aqrNaHLFv0JoVnI8XqR0x/Ps+oL7mYJKa7Zq4ssIkCRvQ7wqO2G8+PnERZmdXJVH9tvmjDtPi1f5f/bg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\src\\building blocks\\RH.Core\\RH.Core.csproj",
+  "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\building blocks\\RH.Core\\RH.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DELL\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
