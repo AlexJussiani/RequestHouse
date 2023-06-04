@@ -2,11 +2,21 @@
 using System.Net;
 using System.Text.Json;
 using System.Threading.Tasks;
+using RH.Core.Messages;
+using System.Text;
+using RH.Core.Communication;
 
 namespace RH.ApiGateways.Services
 {
-    public abstract class Service
+    public abstract class Service: CommandHandler
     {
+        protected StringContent ObterConteudo(object dado)
+        {
+            return new StringContent(
+                JsonSerializer.Serialize(dado),
+                Encoding.UTF8,
+                "application/json");
+        }
         protected async Task<T> DeserializarObjetoResponse<T>(HttpResponseMessage responseMessage)
         {
             var options = new JsonSerializerOptions
@@ -24,6 +34,21 @@ namespace RH.ApiGateways.Services
 
             response.EnsureSuccessStatusCode();
             return true;
+        }
+
+        protected ResponseResult RetornoOk()
+        {
+            return new ResponseResult();
+        }
+
+        protected ResponseResult RetornoValidation()
+        {
+            var response = new ResponseResult();
+            foreach (var validation in ValidationResult.Errors)
+            {
+                response.Errors.Mensagens.Add(validation.ErrorMessage);
+            }
+            return response;
         }
     }
 }

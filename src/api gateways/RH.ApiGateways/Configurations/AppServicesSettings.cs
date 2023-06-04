@@ -4,5 +4,6 @@
     {
         public string PedidoUrl { get; set; }
         public string ClienteUrl { get; set; }
+        public string ProdutoUrl { get; set; }
     }
 }

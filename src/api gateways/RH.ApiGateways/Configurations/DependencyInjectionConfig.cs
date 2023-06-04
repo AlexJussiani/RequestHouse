@@ -19,6 +19,9 @@ namespace RH.ApiGateways.Configurations
 
             services.AddHttpClient<IClientesService, ClientesServices>()
                 .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>();
+
+            services.AddHttpClient<IProdutosServices, ProdutosServices>()
+                .AddHttpMessageHandler<HttpClientAuthorizationDelegatingHandler>();
         }
     }
 }
