@@ -38,13 +38,13 @@ namespace RH.Pedidos.API.Controllers
 
         [ClaimsAuthorize("Pedido", "Atualizar")]
         [HttpPut("api/pedidoItem")]
-        public async Task<IActionResult> AtualizarItemPedido([FromBody] ItemViewModel item)
+        public async Task<IActionResult> AtualizarItemPedido(Guid pedidoId, Guid produtoId, int quantidade)
         {
-            var command = new AtualizarItemPedidoCommand(item.PedidoId, item.ProdutoId, item.Quantidade);
+            var command = new AtualizarItemPedidoCommand(pedidoId, produtoId, quantidade);
             return CustomResponse(await _mediatorHandler.Send(command));
         }
 
-        [ClaimsAuthorize("Produto", "Excluir")]
+        [ClaimsAuthorize("Pedido", "Excluir")]
         [HttpDelete("api/pedidoItem")]
         public async Task<IActionResult> AtualizarItemPedido(Guid pedidoId, Guid produtoId)
         {

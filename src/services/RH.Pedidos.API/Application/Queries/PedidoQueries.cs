@@ -3,6 +3,7 @@ using RH.Pedidos.API.Application.DTO;
 using RH.Pedidos.Data.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace RH.Pedidos.API.Application.Queries
@@ -12,6 +13,8 @@ namespace RH.Pedidos.API.Application.Queries
         Task<PedidoDTO> ObterPedidoPorId(Guid pedidoId);
 
         Task<IEnumerable<PedidoDTO>> ObterListaPedidos();
+        Task<IEnumerable<PedidoDTO>> ObterListaPedidosNaoConcluido();
+        Task<IEnumerable<PedidoDTO>> ObterListaPedidosConcluido();
         Task<IEnumerable<PedidoFilaDTO>> ObterListaPedidosAutorizados();
         public class PedidoQueries : IPedidoQueries
         {
@@ -36,6 +39,44 @@ namespace RH.Pedidos.API.Application.Queries
                 return pedidos == null ? null : MapearListaPedidosAutorizados(pedidos);
             }
 
+            public async Task<IEnumerable<PedidoDTO>> ObterListaPedidosNaoConcluido()
+            {
+                const string sql = @"SELECT 
+                 p.id AS 'IdPedido'
+                 ,p.codigo AS 'Codigo'
+                 ,p.clienteId AS 'ClienteId'
+                 ,p.ValorTotal AS 'ValorTotal'
+                 ,p.data_cadastro AS 'DataCadastro'
+                 ,p.data_autorizacao AS 'DataAutorizacao'
+                 ,p.data_conclusao AS 'DataConclusao'
+                 ,p.PedidoStatus AS 'PedidoStatus'                 
+                FROM pedidos p 
+                where p.PedidoStatus in (1,2,3,4) order by codigo desc";
+                var pedidos = await _pedidoRepository.ObterConexao()
+                    .QueryAsync<dynamic>(sql);
+
+                return pedidos == null ? null : MapearListaPedidos(pedidos);
+            }
+
+            public async Task<IEnumerable<PedidoDTO>> ObterListaPedidosConcluido()
+            {
+                const string sql = @"SELECT 
+                 p.id AS 'IdPedido'
+                 ,p.codigo AS 'Codigo'
+                 ,p.clienteId AS 'ClienteId'
+                 ,p.ValorTotal AS 'ValorTotal'
+                 ,p.data_cadastro AS 'DataCadastro'
+                 ,p.data_autorizacao AS 'DataAutorizacao'
+                 ,p.data_conclusao AS 'DataConclusao'
+                 ,p.PedidoStatus AS 'PedidoStatus'                 
+                FROM pedidos p 
+                where p.PedidoStatus in (5) order by codigo desc";
+                var pedidos = await _pedidoRepository.ObterConexao()
+                    .QueryAsync<dynamic>(sql);
+
+                return pedidos == null ? null : MapearListaPedidos(pedidos);
+            }
+
             public async Task<IEnumerable<PedidoDTO>> ObterListaPedidos()
             {
                 const string sql = @"SELECT 
@@ -48,7 +89,7 @@ namespace RH.Pedidos.API.Application.Queries
                  ,p.data_conclusao AS 'DataConclusao'
                  ,p.PedidoStatus AS 'PedidoStatus'
                  
-                FROM pedidos p";
+                FROM pedidos p order by codigo desc";
                 var pedidos = await _pedidoRepository.ObterConexao()
                     .QueryAsync<dynamic>(sql);
 
@@ -73,13 +114,13 @@ namespace RH.Pedidos.API.Application.Queries
                  ,i.quantidade AS 'Quantidade'
                  ,i.valor_unitario AS 'ValorUnitario'
                 FROM pedidos p
-                INNER JOIN pedidoItems i ON p.id=i.pedido_id
+                LEFT JOIN pedidoItems i ON p.id=i.pedido_id
                 WHERE p.id = @pedidoId";
 
                 var pedido = await _pedidoRepository.ObterConexao()
                     .QueryAsync<dynamic>(sql, new { pedidoId });
 
-                return pedido == null ? null : MapearPedido(pedido);
+                return pedido.Count() == 0 ? null : MapearPedido(pedido);
             }
 
             private PedidoDTO MapearPedido(dynamic result)
@@ -97,19 +138,21 @@ namespace RH.Pedidos.API.Application.Queries
 
                     PedidoItems = new List<PedidoItemDTO>()
                 };
-
-                foreach (var item in result)
+                if (result[0].IdItem != null)
                 {
-                    var pedidoItem = new PedidoItemDTO
+                    foreach (var item in result)
                     {
-                        idItem = item.IdItem,
-                        PedidoId = item.PedidoId,
-                        ProdutoId = item.ProdutoId,
-                        ProdutoNome = item.ProdutoNome,
-                        Quantidade = item.Quantidade,
-                        ValorUnitario = item.ValorUnitario
-                    };
-                    pedido.PedidoItems.Add(pedidoItem);
+                        var pedidoItem = new PedidoItemDTO
+                        {
+                            idItem = item.IdItem,
+                            PedidoId = item.PedidoId,
+                            ProdutoId = item.ProdutoId,
+                            ProdutoNome = item.ProdutoNome,
+                            Quantidade = item.Quantidade,
+                            ValorUnitario = item.ValorUnitario
+                        };
+                        pedido.PedidoItems.Add(pedidoItem);
+                    }
                 }
 
                 return pedido;
@@ -150,7 +193,7 @@ namespace RH.Pedidos.API.Application.Queries
                     );
                 }
                 return pedidos;
-            }
+            }           
         }
     }
 }

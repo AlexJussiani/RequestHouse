@@ -9,7 +9,7 @@ using RH.Core.Identidade;
 namespace RH.ApiGateways.Controllers
 {
     [Authorize]
-    [Route("api-gateway/pedidos")]
+    [Route("api-gateway")]
     public class PedidosController : MainController
     {
         private readonly IPedidosService _pedidoService;
@@ -18,11 +18,28 @@ namespace RH.ApiGateways.Controllers
         {
             _pedidoService = pedidoService;
         }
+        [HttpGet("obter-Pedido-PorId")]
+        public async Task<IActionResult> ObterPedidoPorId(Guid pedidoId)
+        {
+            return CustomResponse(await _pedidoService.ObterPedidoPorId(pedidoId));
+        }
 
         [HttpGet("lista-pedidos")]
-        public async Task<IActionResult> ListaContas()
+        public async Task<IActionResult> ListaPedidos()
         {
-            return CustomResponse(await _pedidoService.ObterListaContas());
+            return CustomResponse(await _pedidoService.ObterListaPedidos());
+        }
+
+        [HttpGet("lista-pedidos-nao-concluido")]
+        public async Task<IActionResult> ListaPedidosNaoConcluido()
+        {
+            return CustomResponse(await _pedidoService.ObterListaPedidosNaoConcluido());
+        }
+
+        [HttpGet("lista-pedidos-concluido")]
+        public async Task<IActionResult> ListaPedidosConcluido()
+        {
+            return CustomResponse(await _pedidoService.ObterListaPedidosConcluido());
         }
 
         [ClaimsAuthorize("Pedido", "Adicionar")]

@@ -1,16 +1,18 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RH.Core.Controllers;
+using RH.Core.Identidade;
+using RH.Core.Usuario;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries;
-using System.Threading.Tasks;
-using System;
 using RH.Pedidos.API.Application.Queries.ViewModels;
-using RH.Core.Controllers;
-using RH.Core.Usuario;
-using RH.Core.Identidade;
+using System;
+using System.Threading.Tasks;
 
 namespace RH.Pedidos.API.Controllers
 {
+    [Authorize]
     public class PedidoController : MainController
     {
         private readonly IAspNetUser _user;
@@ -41,6 +43,22 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Visualizar")]
+        [HttpGet("api/lista-pedidos-nao-concluidos")]
+        public async Task<IActionResult> ObterlistaPedidosNaoConcluido()
+        {
+            var pedidos = await _queries.ObterListaPedidosNaoConcluido();
+            return pedidos == null ? NotFound() : CustomResponse(pedidos);
+        }
+
+        [ClaimsAuthorize("Pedido", "Visualizar")]
+        [HttpGet("api/lista-pedidos-concluidos")]
+        public async Task<IActionResult> ObterlistaPedidosConcluido()
+        {
+            var pedidos = await _queries.ObterListaPedidosConcluido();
+            return pedidos == null ? NotFound() : CustomResponse(pedidos);
+        }
+
+        [ClaimsAuthorize("Pedido", "Visualizar")]
         [HttpGet("api/pedido")]
         public async Task<IActionResult> ObterPedidoPorId(Guid pedidoId)
         {
@@ -58,7 +76,7 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Emitir")]
-        [HttpPut("api/emitir-pedido")]
+        [HttpPut("api/emitir-pedido/{pedidoId:guid}")]
         public async Task<IActionResult> EmitirPedido(Guid pedidoId)
         {
             var command = new EmitirPedidoCommand(pedidoId);
@@ -66,7 +84,7 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Autorizar")]
-        [HttpPut("api/autorizar-pedido")]
+        [HttpPut("api/autorizar-pedido/{pedidoId:guid}")]
         public async Task<IActionResult> AutorizarPedido(Guid pedidoId)
         {
             var command = new AutorizarPedidoCommand(pedidoId);
@@ -74,7 +92,7 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Despachar")]
-        [HttpPut("api/despachar-pedido")]
+        [HttpPut("api/despachar-pedido/{pedidoId:guid}")]
         public async Task<IActionResult> DespacharPedido(Guid pedidoId)
         {
             var command = new DespacharPedidoCommand(pedidoId);
@@ -82,7 +100,7 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Entregar")]
-        [HttpPut("api/entregar-pedido")]
+        [HttpPut("api/entregar-pedido/{pedidoId:guid}")]
         public async Task<IActionResult> EntregarPedido(Guid pedidoId)
         {
             var command = new EntregarPedidoCommand(pedidoId);
@@ -90,7 +108,7 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Cancelar")]
-        [HttpPut("api/cancelar-pedido")]
+        [HttpPut("api/cancelar-pedido/{pedidoId:guid}")]
         public async Task<IActionResult> CancelarPedido(Guid pedidoId)
         {
             var command = new CancelarPedidoCommand(pedidoId);

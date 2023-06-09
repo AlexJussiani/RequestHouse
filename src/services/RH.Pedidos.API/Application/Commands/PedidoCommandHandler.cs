@@ -101,7 +101,7 @@ namespace RH.Pedidos.API.Application.Commands
             }
             if (pedido.PedidoStatus != PedidoStatus.Rascunho)
             {
-                AdicionarErro("O Pedido precisa estar em rascunho para adicioanr Itens");
+                AdicionarErro("O Pedido precisa estar em rascunho para adicionar Itens");
                 return ValidationResult;
             }
 
@@ -136,7 +136,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             if (pedido.PedidoStatus != PedidoStatus.Rascunho)
             {
-                AdicionarErro("O Pedido precisa estar em rascunho para adicioanr Itens");
+                AdicionarErro("O Pedido precisa estar em rascunho para remover itens");
                 return ValidationResult;
             }
 

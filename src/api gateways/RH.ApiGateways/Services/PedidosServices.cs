@@ -16,7 +16,9 @@ namespace RH.ApiGateways.Services
 {
     public interface IPedidosService
     {
-        Task<IEnumerable<PedidosDTO>> ObterListaContas();
+        Task<IEnumerable<PedidosDTO>> ObterListaPedidosNaoConcluido();
+        Task<IEnumerable<PedidosDTO>> ObterListaPedidosConcluido();
+        Task<IEnumerable<PedidosDTO>> ObterListaPedidos();
         Task<PedidosDTO> ObterPedidoPorId(Guid id);
         Task<ResponseResult> CriarPedido(Guid idCliente);
         Task<ResponseResult> AdicionarItemPedido(Guid idPedido, Guid idProduto, int quantidade);
@@ -35,7 +37,43 @@ namespace RH.ApiGateways.Services
             _produtoService = produtoService;
         }
 
-        public async Task<IEnumerable<PedidosDTO>> ObterListaContas()
+        public async Task<IEnumerable<PedidosDTO>> ObterListaPedidosNaoConcluido()
+        {
+            var response = await _httpClient.GetAsync("lista-pedidos-nao-concluidos");
+            if (response.StatusCode == HttpStatusCode.NotFound) return null;
+
+            TratarErrosResponse(response);
+
+            var pedidos = await DeserializarObjetoResponse<IEnumerable<PedidosDTO>>(response);
+
+            foreach (var pedido in pedidos)
+            {
+                var cliente = await _clienteService.ObterClientePorId(pedido.ClienteId);
+                pedido.ClienteNome = cliente.Nome;
+            }
+
+            return pedidos;
+        }
+
+        public async Task<IEnumerable<PedidosDTO>> ObterListaPedidosConcluido()
+        {
+            var response = await _httpClient.GetAsync("lista-pedidos-concluidos");
+            if (response.StatusCode == HttpStatusCode.NotFound) return null;
+
+            TratarErrosResponse(response);
+
+            var pedidos = await DeserializarObjetoResponse<IEnumerable<PedidosDTO>>(response);
+
+            foreach (var pedido in pedidos)
+            {
+                var cliente = await _clienteService.ObterClientePorId(pedido.ClienteId);
+                pedido.ClienteNome = cliente.Nome;
+            }
+
+            return pedidos;
+        }
+
+        public async Task<IEnumerable<PedidosDTO>> ObterListaPedidos()
         {
             var response = await _httpClient.GetAsync("lista-pedidos");
             if (response.StatusCode == HttpStatusCode.NotFound) return null;
@@ -55,7 +93,15 @@ namespace RH.ApiGateways.Services
 
         public async Task<PedidosDTO> ObterPedidoPorId(Guid id)
         {
-            throw new NotImplementedException();
+            var response = await _httpClient.GetAsync($"pedido?pedidoId={id}");
+            if (response.StatusCode == HttpStatusCode.NotFound) return null;
+
+            TratarErrosResponse(response);
+
+            var pedido = await DeserializarObjetoResponse<PedidosDTO>(response);
+            var cliente = await _clienteService.ObterClientePorId(pedido.ClienteId);
+            pedido.ClienteNome = cliente.Nome;
+            return pedido;
         }
 
         public async Task<ResponseResult> CriarPedido(Guid idCliente)
@@ -100,6 +146,6 @@ namespace RH.ApiGateways.Services
             var response = await _httpClient.PostAsync("pedidoItem/", itemContent);
             if (!TratarErrosResponse(response)) return await DeserializarObjetoResponse<ResponseResult>(response);
             return RetornoOk();
-        }        
+        }       
     }
 }
