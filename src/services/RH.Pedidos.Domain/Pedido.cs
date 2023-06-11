@@ -75,7 +75,7 @@ namespace RH.Pedidos.Domain
             return _pedidoItems.Any(i => i.ProdutoId == item.ProdutoId);
         }
 
-        private void CalcularValorPedido()
+        public void CalcularValorPedido()
         {
             ValorTotal = _pedidoItems.Sum(i => i.Quantidade * i.ValorUnitario);
         }

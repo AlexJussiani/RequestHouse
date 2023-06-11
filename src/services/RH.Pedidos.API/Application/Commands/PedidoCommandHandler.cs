@@ -3,8 +3,10 @@ using MediatR;
 using RH.Core.DomainObjects;
 using RH.Core.Messages;
 using RH.Pedidos.API.Application.Events;
+using RH.Pedidos.Data.Migrations;
 using RH.Pedidos.Data.Repository;
 using RH.Pedidos.Domain;
+using System;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -49,16 +51,12 @@ namespace RH.Pedidos.API.Application.Commands
         public async Task<ValidationResult> Handle(AdicionarItemPedidoCommand message, CancellationToken cancellationToken)
         {
             if (!ValidarComando(message)) return message.ValidationResult;
-
+            Thread.Sleep(500);
             var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
             var pedidoItem = new PedidoItem(message.ProdutoId, message.Nome, message.Quantidade, message.ValorUnitario);
 
             if(pedido == null)
-            {
-                // pedido = Pedido.PedidoFactory.NovoPedidoRascunho(message.PedidoId);
-                //   pedido.AdicionarItem(pedidoItem);
-
-                // _pedidoRepository.Adicionar(pedido);
+            {                
                 AdicionarErro("Pedido Não Encontrado");
                 return ValidationResult;
             }
@@ -112,7 +110,6 @@ namespace RH.Pedidos.API.Application.Commands
                 AdicionarErro("Item pedido Não Encontrado");
                 return ValidationResult;
             }
-
             pedido.AtualizarUnidades(pedidoItem, message.Quantidade);
             _pedidoRepository.AtualizarItem(pedidoItem);
             _pedidoRepository.Atualizar(pedido);
@@ -317,6 +314,6 @@ namespace RH.Pedidos.API.Application.Commands
             }
 
             return false;
-        }
+        }       
     }
 }

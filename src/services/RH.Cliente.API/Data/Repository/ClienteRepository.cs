@@ -41,7 +41,7 @@ namespace RH.Clientes.API.Data.Repository
 
         public async Task<IEnumerable<Cliente>> ObterTodos()
         {
-            return await _context.Clientes.AsNoTracking().ToListAsync();
+            return await _context.Clientes.AsNoTracking().OrderBy(c => c.Nome).ToListAsync();
         }
 
         public void Remover(Cliente cliente)

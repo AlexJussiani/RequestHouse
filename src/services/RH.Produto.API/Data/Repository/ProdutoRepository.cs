@@ -51,7 +51,7 @@ namespace RH.Produtos.API.Data.Repository
 
         public async Task<IEnumerable<Produto>> ObterTodos()
         {
-            return await _context.Produtos.AsNoTracking().Where(c => c.Ativo == true).ToListAsync();
+            return await _context.Produtos.AsNoTracking().Where(c => c.Ativo == true).OrderBy(p => p.Valor).ThenBy(p => p.Nome).ToListAsync();
         }
 
         public void Remover(Produto produto)
