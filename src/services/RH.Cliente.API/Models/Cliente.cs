@@ -1,4 +1,5 @@
 ﻿using RH.Core.DomainObjects;
+using System.Collections.Generic;
 
 namespace RH.Clientes.API.Models
 {
@@ -11,6 +12,9 @@ namespace RH.Clientes.API.Models
         public bool Excluido { get; set; }
         public bool EhFornecedor { get; set; }
         public bool EhCliente { get; set; }
+
+        //EF Relation
+        public List<ContatoCliente> Contatos { get; set; }
 
         //EF Relation
         public Endereco Endereco { get; set; }

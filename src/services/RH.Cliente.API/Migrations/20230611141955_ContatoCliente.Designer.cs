@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RH.Clientes.API.Data;
 
 namespace RH.Clientes.API.Migrations
 {
     [DbContext(typeof(ClientesContext))]
-    partial class ClientesContextModelSnapshot : ModelSnapshot
+    [Migration("20230611141955_ContatoCliente")]
+    partial class ContatoCliente
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

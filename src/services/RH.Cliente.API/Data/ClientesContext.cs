@@ -20,6 +20,7 @@ namespace RH.Clientes.API.Data
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<ContatoCliente> Contatos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

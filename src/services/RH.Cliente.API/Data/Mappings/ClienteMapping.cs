@@ -47,6 +47,11 @@ namespace RH.Clientes.API.Data.Mappings
             builder.HasOne(c => c.Endereco)
                 .WithOne(c => c.Cliente);
 
+            // 1 : N => Pedido : PedidoItems
+            builder.HasMany(c => c.Contatos)
+                        .WithOne(c => c.Cliente)
+                        .HasForeignKey(c => c.ClienteId);
+
             builder.ToTable("Clientes");
         }
     }
