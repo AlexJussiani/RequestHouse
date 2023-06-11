@@ -76,6 +76,14 @@ namespace RH.Pedidos.API.Controllers
         }
 
         [ClaimsAuthorize("Pedido", "Emitir")]
+        [HttpPut("api/atualizar-valor-pedido")]
+        public async Task<IActionResult> AtualizarValorPedido([FromBody] PedidoValorViewModel pedido)
+        {
+            var command = new AtualizarValorPedidoCommand(pedido.PedidoId, pedido.ValorAcrescimo, pedido.ValorDesconto, pedido.Observacoes);
+            return CustomResponse(await _mediatorHandler.Send(command));
+        }
+
+        [ClaimsAuthorize("Pedido", "Emitir")]
         [HttpPut("api/emitir-pedido/{pedidoId:guid}")]
         public async Task<IActionResult> EmitirPedido(Guid pedidoId)
         {

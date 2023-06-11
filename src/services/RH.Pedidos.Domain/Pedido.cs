@@ -10,10 +10,13 @@ namespace RH.Pedidos.Domain
         public int Codigo { get; private set; }
         public Guid ClienteId { get; private set; }
         public decimal ValorTotal { get; private set; }
+        public decimal ValorDesconto { get; private set; }
+        public decimal ValorAcrescimo { get; private set; }
         public DateTime DataCadastro { get; private set; }
         public DateTime? DataAutorizacao { get; private set; }
         public DateTime? DataConclusao { get; private set; }
         public PedidoStatus PedidoStatus { get; private set; }
+        public string Observacoes { get; private set; }
 
         private readonly List<PedidoItem> _pedidoItems;
         public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
@@ -78,6 +81,7 @@ namespace RH.Pedidos.Domain
         public void CalcularValorPedido()
         {
             ValorTotal = _pedidoItems.Sum(i => i.Quantidade * i.ValorUnitario);
+            ValorTotal += (ValorAcrescimo - ValorDesconto);
         }
 
         private void TornarRascunho()
@@ -111,6 +115,16 @@ namespace RH.Pedidos.Domain
             PedidoStatus = PedidoStatus.Cancelado;
             DataConclusao = DateTime.Now;
         }
+
+        public void AtualizarPedido(decimal valorDesconto, decimal valorAcrescimo, string observacoes)
+        {
+            ValorDesconto = valorDesconto;
+            ValorAcrescimo = valorAcrescimo;
+            Observacoes = observacoes;
+            CalcularValorPedido();
+        }
+
+       
 
         public static class PedidoFactory
         {

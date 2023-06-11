@@ -34,6 +34,22 @@ namespace RH.Pedidos.Data.Mappings
             builder.Property(c => c.DataConclusao)
                 .HasColumnName("data_conclusao");
 
+            builder.Property(c => c.ValorTotal)
+                .IsRequired()
+                .HasColumnType("decimal(5,2)")
+                .HasColumnName("valor_total");
+
+            builder.Property(c => c.ValorAcrescimo)
+                .HasColumnType("decimal(5,2)")
+                .HasColumnName("valor_acrescimo");
+
+            builder.Property(c => c.ValorDesconto)
+                .HasColumnType("decimal(5,2)")
+                .HasColumnName("valor_desconto");
+
+            builder.Property(c => c.Observacoes)
+                .HasColumnName("observacoes");
+
             builder.OwnsOne(p => p.EnderecoEntrega, e =>
             {
                 e.Property(pe => pe.Logradouro)

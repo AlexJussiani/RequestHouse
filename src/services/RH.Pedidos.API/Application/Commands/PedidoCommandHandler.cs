@@ -22,7 +22,8 @@ namespace RH.Pedidos.API.Application.Commands
         IRequestHandler<AutorizarPedidoCommand, ValidationResult>,
         IRequestHandler<DespacharPedidoCommand, ValidationResult>,
         IRequestHandler<EntregarPedidoCommand, ValidationResult>,
-        IRequestHandler<CancelarPedidoCommand, ValidationResult>
+        IRequestHandler<CancelarPedidoCommand, ValidationResult>,
+        IRequestHandler<AtualizarValorPedidoCommand, ValidationResult>
     {    
 
         private readonly IMediator _mediator;
@@ -62,7 +63,7 @@ namespace RH.Pedidos.API.Application.Commands
             }
             if (pedido.PedidoStatus != PedidoStatus.Rascunho)
             {
-                AdicionarErro("O Pedido precisa estar em rascunho para adicioanr Itens");
+                AdicionarErro("O Pedido precisa estar em rascunho para adicionar Itens");
                 return ValidationResult;
             }
             else
@@ -302,7 +303,34 @@ namespace RH.Pedidos.API.Application.Commands
             pedido.AdicionarEvento(new PedidoCanceladoEvent(pedido.Id));
 
             return await PersistirDados(_pedidoRepository.UnitOfWork);
-        }       
+        }
+
+        public async Task<ValidationResult> Handle(AtualizarValorPedidoCommand message, CancellationToken cancellationToken)
+        {
+            if (!ValidarComando(message)) return message.ValidationResult;
+
+            var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
+
+            if (pedido == null)
+            {
+                AdicionarErro("Pedido Não Encontrado");
+                return ValidationResult;
+            }
+
+            if (pedido.PedidoStatus != PedidoStatus.Rascunho)
+            {
+                AdicionarErro("O Pedido precisa estar em rascunho para adicionar Itens");
+                return ValidationResult;
+            }
+
+            pedido.AtualizarPedido(message.ValorDesconto, message.ValorAcrescimo, message.Observacoes);
+
+            _pedidoRepository.Atualizar(pedido);
+            pedido.AdicionarEvento(new PedidoAtualizadoEvent());
+
+            return await PersistirDados(_pedidoRepository.UnitOfWork);
+
+        }
 
         private bool ValidarComando(Command message)
         {
