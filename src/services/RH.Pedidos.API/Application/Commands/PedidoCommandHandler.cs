@@ -51,7 +51,7 @@ namespace RH.Pedidos.API.Application.Commands
         public async Task<ValidationResult> Handle(AdicionarItemPedidoCommand message, CancellationToken cancellationToken)
         {
             if (!ValidarComando(message)) return message.ValidationResult;
-            Thread.Sleep(500);
+            Thread.Sleep(500); //pausa para caso tenha algum objeto aberto ele seja fechado 
             var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
             var pedidoItem = new PedidoItem(message.ProdutoId, message.Nome, message.Quantidade, message.ValorUnitario);
 
@@ -89,7 +89,7 @@ namespace RH.Pedidos.API.Application.Commands
         public async Task<ValidationResult> Handle(AtualizarItemPedidoCommand message, CancellationToken cancellationToken)
         {
             if (!ValidarComando(message)) return message.ValidationResult;
-
+            Thread.Sleep(500); //pausa para caso tenha algum objeto aberto ele seja fechado
             var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
 
             if(pedido == null)
@@ -122,7 +122,7 @@ namespace RH.Pedidos.API.Application.Commands
         public async Task<ValidationResult> Handle(RemoverItemPedidoCommand message, CancellationToken cancellationToken)
         {
             if (!ValidarComando(message)) return message.ValidationResult;
-
+            Thread.Sleep(500); //pausa para caso tenha algum objeto aberto ele seja fechado
             var pedido = await _pedidoRepository.ObterPorPedidoId(message.PedidoId);
 
             if (pedido == null)
