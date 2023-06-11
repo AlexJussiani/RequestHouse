@@ -19,39 +19,64 @@ namespace RH.Clientes.API.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public void Adicionar(Cliente cliente)
+        public void AdicionarCliente(Cliente cliente)
         {
             _context.Add(cliente);
         }
 
-        public void Atualizar(Cliente cliente)
+        public void AtualizarCliente(Cliente cliente)
         {
             _context.Update(cliente);
         }
 
-        public async Task<Cliente> ObterPorId(Guid id)
+        public async Task<Cliente> ObterClientePorId(Guid id)
         {
-            return await _context.Clientes.FindAsync(id);
+            return await _context.Clientes.Include(c => c.Contatos).FirstOrDefaultAsync(c => c.Id == id);
         }
 
-        public async Task<IEnumerable<Cliente>> ObterPorName(string name)
+        public async Task<IEnumerable<Cliente>> ObterClientePorName(string name)
         {
             return await _context.Clientes.AsNoTracking().Where(c => c.Nome.Contains(name)).ToListAsync();
         }
 
-        public async Task<IEnumerable<Cliente>> ObterTodos()
+        public async Task<IEnumerable<Cliente>> ObterTodosClientes()
         {
             return await _context.Clientes.AsNoTracking().OrderBy(c => c.Nome).ToListAsync();
         }
 
-        public void Remover(Cliente cliente)
+        public void RemoverCliente(Cliente cliente)
         {
             _context.Remove(cliente);
+        }      
+
+        public async Task<IEnumerable<ContatoCliente>> ObterTodosContatosClientes()
+        {
+            return await _context.Contatos.AsNoTracking().OrderBy(c => c.Nome).ToListAsync();
         }
+
+        public async Task<ContatoCliente> ObterContatoClientePorId(Guid id)
+        {
+            return await _context.Contatos.FindAsync(id);
+        }
+
+        public void AdicionarContatoCliente(ContatoCliente contato)
+        {
+            _context.Add(contato);
+        }
+
+        public void AtualizarContatoCliente(ContatoCliente contato)
+        {
+            _context.Update(contato);
+        }
+
+        public void RemoverContatoCliente(ContatoCliente contato)
+        {
+            _context.Remove(contato);
+        }
+
         public void Dispose()
         {
             _context.Dispose();
         }
-
     }
 }

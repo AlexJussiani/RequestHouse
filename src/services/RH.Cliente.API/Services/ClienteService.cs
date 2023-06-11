@@ -20,15 +20,21 @@ namespace RH.Clientes.API.Services
             _mapper = mapper;
         }
 
-        public async Task<ValidationResult> Adicionar(ClienteDTO produtoDTO)
+        public async Task<ValidationResult> AdicionarCliente(ClienteDTO clienteDTO)
         {
-            _repository.Adicionar(_mapper.Map<Cliente>(produtoDTO));
+            _repository.AdicionarCliente(_mapper.Map<Cliente>(clienteDTO));
             return await PersistirDados(_repository.UnitOfWork);
         }
 
-        public async Task<ValidationResult> Atualizar(Guid idCliente, ClienteDTO clienteDTO)
+        public async Task<ValidationResult> AdicionarContatoCliente(ContatoCliente contato)
         {
-            var cliente = await _repository.ObterPorId(idCliente);
+            _repository.AdicionarContatoCliente(contato);
+            return await PersistirDados(_repository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> AtualizarCliente(Guid idCliente, ClienteDTO clienteDTO)
+        {
+            var cliente = await _repository.ObterClientePorId(idCliente);
 
             if (cliente == null)
             {
@@ -37,18 +43,34 @@ namespace RH.Clientes.API.Services
             }
 
             cliente = AlterarCliente(cliente, clienteDTO);
-            _repository.Atualizar(cliente);
+            _repository.AtualizarCliente(cliente);
             return await PersistirDados(_repository.UnitOfWork);
         }
 
-        public async Task<ValidationResult> Remover(Guid idCliente)
+        public Task<ValidationResult> AtualizarContatoCliente(Guid idCliente, ContatoCliente cliente)
         {
-            var cliente = await _repository.ObterPorId(idCliente);
+            throw new NotImplementedException();
+        }
+
+        public async Task<ValidationResult> RemoverCliente(Guid idCliente)
+        {
+            var cliente = await _repository.ObterClientePorId(idCliente);
 
             if (cliente == null)
                 return ValidationResult;
 
-            _repository.Remover(cliente);
+            _repository.RemoverCliente(cliente);
+            return await PersistirDados(_repository.UnitOfWork);
+        }
+
+        public async Task<ValidationResult> RemoverContatoCliente(Guid idContato)
+        {
+            var contato = await _repository.ObterContatoClientePorId(idContato);
+
+            if (contato == null)
+                return ValidationResult;
+
+            _repository.RemoverContatoCliente(contato);
             return await PersistirDados(_repository.UnitOfWork);
         }
 

@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace RH.Clientes.API.Controllers
 {
     [Route("api/clientes")]
-    public class ProdutosController : MainController
+    public class ClienteController : MainController
     {
         private readonly IClienteRepository _repository;
         private readonly IClienteService _clienteService;
 
-        public ProdutosController(IClienteRepository repository, IClienteService clienteService)
+        public ClienteController(IClienteRepository repository, IClienteService clienteService)
         {
             _repository = repository;
             _clienteService = clienteService;
@@ -23,31 +23,31 @@ namespace RH.Clientes.API.Controllers
         [HttpGet()]
         public async Task<IActionResult> Index()
         {
-            return CustomResponse(await _repository.ObterTodos());
+            return CustomResponse(await _repository.ObterTodosClientes());
         }
 
         [HttpGet("api/cliente-obterPorId")]
         public async Task<IActionResult> ObterPedidoPorId(Guid id)
         {
-            return CustomResponse(await _repository.ObterPorId(id));
+            return CustomResponse(await _repository.ObterClientePorId(id));
         }
 
         [HttpPost()]
         public async Task<ActionResult> Registrar(ClienteDTO cliente)
         {
-            return CustomResponse(await _clienteService.Adicionar(cliente));
+            return CustomResponse(await _clienteService.AdicionarCliente(cliente));
         }
 
         [HttpPut()]
         public async Task<ActionResult> Atualizar(Guid idCliente, ClienteDTO cliente)
         {
-            return CustomResponse(await _clienteService.Atualizar(idCliente, cliente));
+            return CustomResponse(await _clienteService.AtualizarCliente(idCliente, cliente));
         }
 
         [HttpDelete()]
         public async Task<ActionResult> Remover(Guid idCliente)
         {
-            return CustomResponse(await _clienteService.Remover(idCliente));
+            return CustomResponse(await _clienteService.RemoverCliente(idCliente));
         }
     }
 }
