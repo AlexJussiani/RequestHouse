@@ -7,8 +7,6 @@ using RH.Core.Usuario;
 using RH.Pedidos.API.Application.Commands;
 using RH.Pedidos.API.Application.Queries;
 using RH.Pedidos.API.Application.Queries.ViewModels;
-using RH.Pedidos.API.Services;
-using RH.Pedidos.Domain;
 using System;
 using System.Threading.Tasks;
 

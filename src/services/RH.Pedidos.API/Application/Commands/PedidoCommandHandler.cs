@@ -3,7 +3,6 @@ using MediatR;
 using RH.Core.DomainObjects;
 using RH.Core.Messages;
 using RH.Pedidos.API.Application.Events;
-using RH.Pedidos.Data.Migrations;
 using RH.Pedidos.Data.Repository;
 using RH.Pedidos.Domain;
 using System;

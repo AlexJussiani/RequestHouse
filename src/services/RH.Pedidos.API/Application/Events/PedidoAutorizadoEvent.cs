@@ -4,7 +4,7 @@ using System;
 namespace RH.Pedidos.API.Application.Events
 {
     public class PedidoAutorizadoEvent : Event
-    {      
+    {
         public int CodigoPedido { get; private set; }
         public Guid PedidoId { get; private set; }
         public Guid ClienteId { get; private set; }

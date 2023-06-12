@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IBwugm5AqnSsYXWKiM/aOacd3lCMPCCQi1OlTvVNEANweQ7SD7uQnvfgFl8WYRbzPSpiGwcj4aIQEeMTAHpG4w==",
+  "dgSpecHash": "dIUYohWiac/8OJ3q5LjDmiS9lLBwO9g2QyYOL73CQ/oRHau2G0zaj/+aQ5ZGMEEmiNv3Dk3Md8zSlcQhnw+WCw==",
   "success": true,
   "projectFilePath": "C:\\Users\\DELL\\Documents\\02 - PROJETOS\\RequestHouse\\backend\\src\\services\\RH.Cliente.API\\RH.Clientes.API.csproj",
   "expectedPackageFiles": [
@@ -214,7 +214,11 @@
     "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
     "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xpath\\4.3.0\\system.xml.xpath.4.3.0.nupkg.sha512",
-    "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\DELL\\.nuget\\packages\\system.xml.xpath.xdocument\\4.3.0\\system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }

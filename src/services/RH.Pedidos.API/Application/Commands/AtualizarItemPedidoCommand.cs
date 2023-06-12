@@ -39,7 +39,7 @@ namespace RH.Pedidos.API.Application.Commands
             RuleFor(c => c.Quantidade)
                 .GreaterThan(0)
                 .WithMessage("A quantidade miníma de um item é 1");
-            
+
         }
     }
 }

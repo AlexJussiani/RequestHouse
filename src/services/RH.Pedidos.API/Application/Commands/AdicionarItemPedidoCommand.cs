@@ -60,7 +60,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             RuleFor(c => c.Quantidade)
                 .GreaterThan(0)
-                .WithMessage(QtdItemErroMsg);                
+                .WithMessage(QtdItemErroMsg);
 
             RuleFor(c => c.ValorUnitario)
                 .GreaterThan(0)

@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace RH.Pedidos.API.Application.Events
-{    
+{
     public class PedidoEventHandler : 
         INotificationHandler<PedidoAdicionadoEvent>,
         INotificationHandler<PedidoItemAdicionadoEvent>,

@@ -16,7 +16,7 @@ namespace RH.Pedidos.API.Application.Commands
         public RemoverItemPedidoCommand(Guid pedidoId, Guid produtoId)
         {
             PedidoId = pedidoId;
-            ProdutoId = produtoId;            
+            ProdutoId = produtoId;
         }
 
         public override bool EhValido()
@@ -38,7 +38,7 @@ namespace RH.Pedidos.API.Application.Commands
 
             RuleFor(c => c.ProdutoId)
                 .NotEqual(Guid.Empty)
-                .WithMessage(IdProdutoErroMsg);           
+                .WithMessage(IdProdutoErroMsg);
         }
     }
 }
